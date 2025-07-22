@@ -98,28 +98,29 @@
 
     <main>
         <section id="home" class="container mx-auto px-6 py-20 md:py-32 text-center">
-            <div class="w-28 h-28 mx-auto bg-slate-200 rounded-full mb-6 overflow-hidden shadow-lg">
+            <div class="w-40 h-40 mx-auto bg-slate-200 rounded-full mb-6 overflow-hidden shadow-lg">
                  <img src="img/img_cth.jpg" alt="Taehyun Cho's professional profile photo" class="w-full h-full object-cover">
             </div>
-            <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">Advancing Intelligence Through Reinforcement Learning</h1>
+            <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">Taehyun Cho</h1>
             <p class="text-lg text-slate-700 max-w-3xl mx-auto">I am Taehyun Cho, a researcher passionate about exploring the potential of reinforcement learning to solve sequential decision-making problems under uncertainty and contribute to opening new frontiers in human-aligned AI.</p>
         </section>
 
         <section id="intro" class="py-20 bg-white/90 backdrop-blur-sm shadow-inner">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center text-slate-900 mb-2">Research Interest</h2>
+                <h2 class="text-3xl font-bold text-center text-slate-900 mb-2">Introduction</h2>
                 <div class="grid md:grid-cols-3 gap-8 text-center">
                     <div class="bg-slate-100 p-8 rounded-2xl group relative overflow-hidden h-80 flex flex-col justify-center items-center shadow-lg transition-all duration-300 hover:shadow-xl">
                         <!-- Visual State (Default) -->
                         <div class="absolute inset-0 flex flex-col justify-center items-center transition-opacity duration-500 group-hover:opacity-0 p-4">
                             <span class="text-5xl mb-4">📚</span>
-                            <h3 class="text-xl font-semibold text-slate-900">Brief Background</h3>
+                            <h3 class="text-xl font-semibold text-slate-900">Background</h3>
                         </div>
                         <!-- Text State (On Hover) -->
                         <div class="absolute inset-0 flex flex-col justify-center items-center p-8 bg-slate-100 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                             <h3 class="text-xl font-semibold text-slate-900 mb-2">Background</h3>
-                            <p class="text-slate-700 text-center">I am a Ph.D. candidate in Electrical Engineering and Computer Science at Seoul National University, with extensive research conducted in Reinforcement Learning.
+                            <p class="text-slate-700 text-center">I am a Ph.D. candidate in Electrical Engineering and Computer Science at Seoul National University, advised by Jungwoo Lee.
                             I received my B.S. in Mathematics from Korea University.</p>
+                            <p class="text-slate-700 text-center">I have experience as an intern at LG AI Research's Superintelligence Lab, focusing on RLHF for reasoning LLMs.</p>
                         </div>
                     </div>
                     <div class="bg-slate-100 p-8 rounded-2xl group relative overflow-hidden h-80 flex flex-col justify-center items-center shadow-lg transition-all duration-300 hover:shadow-xl">
@@ -138,11 +139,11 @@
                         <!-- Visual State (Default) -->
                         <div class="absolute inset-0 flex flex-col justify-center items-center transition-opacity duration-500 group-hover:opacity-0 p-4">
                             <span class="text-5xl mb-4">🎯</span>
-                            <h3 class="text-xl font-semibold text-slate-900">Core Research Themes</h3>
+                            <h3 class="text-xl font-semibold text-slate-900">Research Interest</h3>
                         </div>
                         <!-- Text State (On Hover) -->
                         <div class="absolute inset-0 flex flex-col justify-center items-center p-8 bg-slate-100 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                            <h3 class="text-xl font-semibold text-slate-900 mb-2">Core Research Themes</h3>
+                            <h3 class="text-xl font-semibold text-slate-900 mb-2">Research Interest</h3>
                             <p class="text-slate-700 text-center">My research aims to answer fundamental questions in RL such as sample efficiency, generalization, and aligning AI with human intentions, with a focus on <strong>Distributional Reinforcement Learning(DistRL), Reinforcement Learning from Human Feedback(RLHF), and Regret Analysis.</strong></p>
                         </div>
                     </div>
@@ -194,7 +195,7 @@
                     </div>
 
                     <div class="bg-white p-8 rounded-2xl shadow-lg transition-shadow duration-300 hover:shadow-xl">
-                        <h3 class="text-2xl font-semibold text-slate-900 mb-4">Core Research 3: Pitfall of Optimism: Distributional RL by Randomizing Risk Criterion (PQR)</h3>
+                        <h3 class="text-2xl font-semibold text-slate-900 mb-4">Pitfall of Optimism: Distributional Reinforcement Learning by Randomizing Risk Criterion</h3>
                         <p class="text-sm text-slate-600 mb-4">
                             NeurIPS 2023 | <span class="font-bold">Taehyun Cho</span>, Seungyub Han, Heesoo Lee, Dohyeong Kim, Kyungjae Lee, Jungwoo Lee
                         </p>
@@ -213,22 +214,43 @@
         <section id="vision" class="py-20 bg-white/90 backdrop-blur-sm shadow-inner">
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl font-bold text-center text-slate-900 mb-2">Towards the Future: Next Steps in Reinforcement Learning</h2>
-                <p class="text-center text-slate-700 mb-12">This section presents my vision for the future of reinforcement learning and the research directions I aspire to contribute to at a leading AI research lab.</p>
+                <p class="text-center text-slate-700 mb-12">This section presents my vision for the future of reinforcement learning and the research directions I aspire to contribute to at a leading AI research lab. Hover over each card to reveal details.</p>
                 <div class="grid md:grid-cols-3 gap-8 mb-12">
-                    <div class="text-center">
-                        <span class="text-5xl text-sky-600 mb-4 block">🚧</span>
-                        <h3 class="text-xl font-semibold text-slate-900 mb-2">Current Challenges</h3>
-                        <p class="text-slate-700">The primary challenges in RL include improving sample efficiency, achieving robust generalization across diverse environments, ensuring safety and interpretability of learned policies, and scaling to real-world complexities.</p>
+                    <div class="bg-slate-100 p-8 rounded-2xl group relative overflow-hidden h-64 flex flex-col justify-center items-center shadow-lg transition-all duration-300 hover:shadow-xl">
+                        <!-- Visual State (Default) -->
+                        <div class="absolute inset-0 flex flex-col justify-center items-center transition-opacity duration-500 group-hover:opacity-0 p-4">
+                            <span class="text-5xl mb-4">🚧</span>
+                            <h3 class="text-xl font-semibold text-slate-900">Current Challenges</h3>
+                        </div>
+                        <!-- Text State (On Hover) -->
+                        <div class="absolute inset-0 flex flex-col justify-center items-center p-8 bg-slate-100 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                            <h3 class="text-xl font-semibold text-slate-900 mb-2">Current Challenges</h3>
+                            <p class="text-slate-700 text-center">The primary challenges in RL include improving sample efficiency, achieving robust generalization across diverse environments, ensuring safety and interpretability of learned policies, and scaling to real-world complexities.</p>
+                        </div>
                     </div>
-                    <div class="text-center">
-                        <span class="text-5xl text-sky-600 mb-4 block">🔭</span>
-                        <h3 class="text-xl font-semibold text-slate-900 mb-2">Long-term Research Goals</h3>
-                        <p class="text-slate-700">My long-term goal is to develop foundational RL algorithms that enable agents to learn efficiently from limited data, generalize to novel tasks and environments, and operate safely and reliably in human-centric applications. I aim to focus on areas like multi-agent systems, lifelong learning, and integrating symbolic reasoning with deep RL.</p>
+                    <div class="bg-slate-100 p-8 rounded-2xl group relative overflow-hidden h-64 flex flex-col justify-center items-center shadow-lg transition-all duration-300 hover:shadow-xl">
+                        <!-- Visual State (Default) -->
+                        <div class="absolute inset-0 flex flex-col justify-center items-center transition-opacity duration-500 group-hover:opacity-0 p-4">
+                            <span class="text-5xl mb-4">🔭</span>
+                            <h3 class="text-xl font-semibold text-slate-900">Long-term Research Goals</h3>
+                        </div>
+                        <!-- Text State (On Hover) -->
+                        <div class="absolute inset-0 flex flex-col justify-center items-center p-8 bg-slate-100 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                            <h3 class="text-xl font-semibold text-slate-900 mb-2">Long-term Research Goals</h3>
+                            <p class="text-slate-700 text-center">My long-term goal is to develop foundational RL algorithms that enable agents to learn efficiently from limited data, generalize to novel tasks and environments, and operate safely and reliably in human-centric applications. I aim to focus on areas like multi-agent systems, lifelong learning, and integrating symbolic reasoning with deep RL.</p>
+                        </div>
                     </div>
-                    <div class="text-center">
-                        <span class="text-5xl text-sky-600 mb-4 block">🚀</span>
-                        <h3 class="text-xl font-semibold text-slate-900 mb-2">Next Steps at a Leading AI Lab</h3>
-                        <p class="text-slate-700">At a leading AI research lab, I'm eager to explore how regret-based preference learning can be extended to multi-modal RLHF for complex robotic tasks, or investigate the theoretical underpinnings of provably efficient distributional RL in real-world, high-dimensional settings. I'm also keen to contribute to research on AI safety and alignment, ensuring that powerful RL agents act in beneficial ways.</p>
+                    <div class="bg-slate-100 p-8 rounded-2xl group relative overflow-hidden h-64 flex flex-col justify-center items-center shadow-lg transition-all duration-300 hover:shadow-xl">
+                        <!-- Visual State (Default) -->
+                        <div class="absolute inset-0 flex flex-col justify-center items-center transition-opacity duration-500 group-hover:opacity-0 p-4">
+                            <span class="text-5xl mb-4">🚀</span>
+                            <h3 class="text-xl font-semibold text-slate-900">Next Steps at a Leading AI Lab</h3>
+                        </div>
+                        <!-- Text State (On Hover) -->
+                        <div class="absolute inset-0 flex flex-col justify-center items-center p-8 bg-slate-100 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                            <h3 class="text-xl font-semibold text-slate-900 mb-2">Next Steps at a Leading AI Lab</h3>
+                            <p class="text-slate-700 text-center">At a leading AI research lab, I'm eager to explore how regret-based preference learning can be extended to multi-modal RLHF for complex robotic tasks, or investigate the theoretical underpinnings of provably efficient distributional RL in real-world, high-dimensional settings. I'm also keen to contribute to research on AI safety and alignment, ensuring that powerful RL agents act in beneficial ways.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -237,19 +259,43 @@
         <section id="synergy" class="py-20">
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl font-bold text-center text-slate-900 mb-2">Advancing Intelligence Together with Leading AI Research</h2>
-                <p class="text-center text-slate-700 mb-12">My research and vision align with the goals of leading AI research organizations, creating a strong synergy for future advancements.</p>
+                <p class="text-center text-slate-700 mb-12">My research and vision align with the goals of leading AI research organizations, creating a strong synergy for future advancements. Hover over each card to reveal details.</p>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="bg-white p-6 rounded-2xl shadow-lg">
-                        <h3 class="font-semibold text-slate-900 mb-2">Research Alignment: Core AI Pillars</h3>
-                        <p class="text-slate-700">My research in preference learning and provably efficient distributional RL can contribute to a leading AI research lab's work on RLHF for large language models, robotics control, or scientific discovery platforms, addressing challenges of aligning complex AI systems with human intentions, ensuring robust and safe exploration, and handling uncertainty in real-world applications.</p>
+                    <div class="bg-white p-6 rounded-2xl shadow-lg group relative overflow-hidden h-64 flex flex-col justify-center items-center transition-all duration-300 hover:shadow-xl">
+                        <!-- Visual State (Default) -->
+                        <div class="absolute inset-0 flex flex-col justify-center items-center transition-opacity duration-500 group-hover:opacity-0 p-4">
+                            <span class="text-5xl mb-4">🤝</span>
+                            <h3 class="font-semibold text-slate-900">Research Alignment: Core AI Pillars</h3>
+                        </div>
+                        <!-- Text State (On Hover) -->
+                        <div class="absolute inset-0 flex flex-col justify-center items-center p-8 bg-white opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                            <h3 class="font-semibold text-slate-900 mb-2">Research Alignment: Core AI Pillars</h3>
+                            <p class="text-slate-700 text-center">My research in preference learning and provably efficient distributional RL can contribute to a leading AI research lab's work on RLHF for large language models, robotics control, or scientific discovery platforms, addressing challenges of aligning complex AI systems with human intentions, ensuring robust and safe exploration, and handling uncertainty in real-world applications.</p>
+                        </div>
                     </div>
-                    <div class="bg-white p-6 rounded-2xl shadow-lg">
-                        <h3 class="font-semibold text-slate-900 mb-2">Values and Cultural Fit</h3>
-                        <p class="text-slate-700">My collaborative and open research style aligns well with the culture of top research institutions, and I believe we can create a greater impact together.</p>
+                    <div class="bg-white p-6 rounded-2xl shadow-lg group relative overflow-hidden h-64 flex flex-col justify-center items-center transition-all duration-300 hover:shadow-xl">
+                        <!-- Visual State (Default) -->
+                        <div class="absolute inset-0 flex flex-col justify-center items-center transition-opacity duration-500 group-hover:opacity-0 p-4">
+                            <span class="text-5xl mb-4">🧩</span>
+                            <h3 class="font-semibold text-slate-900">Values and Cultural Fit</h3>
+                        </div>
+                        <!-- Text State (On Hover) -->
+                        <div class="absolute inset-0 flex flex-col justify-center items-center p-8 bg-white opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                            <h3 class="font-semibold text-slate-900 mb-2">Values and Cultural Fit</h3>
+                            <p class="text-slate-700 text-center">My collaborative and open research style aligns well with the culture of top research institutions, and I believe we can create a greater impact together.</p>
+                        </div>
                     </div>
-                    <div class="bg-white p-6 rounded-2xl shadow-lg">
-                        <h3 class="font-semibold text-slate-900 mb-2">Unique Contribution</h3>
-                        <p class="text-slate-700">I can offer a fresh perspective and contribute to problem-solving within an AI research team through my unique blend of theoretical rigor in regret analysis, practical experience in high-dimensional continuous control, and a strong understanding of distributional RL's nuances.</p>
+                    <div class="bg-white p-6 rounded-2xl shadow-lg group relative overflow-hidden h-64 flex flex-col justify-center items-center transition-all duration-300 hover:shadow-xl">
+                        <!-- Visual State (Default) -->
+                        <div class="absolute inset-0 flex flex-col justify-center items-center transition-opacity duration-500 group-hover:opacity-0 p-4">
+                            <span class="text-5xl mb-4">🌟</span>
+                            <h3 class="font-semibold text-slate-900">Unique Contribution</h3>
+                        </div>
+                        <!-- Text State (On Hover) -->
+                        <div class="absolute inset-0 flex flex-col justify-center items-center p-8 bg-white opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                            <h3 class="font-xl font-semibold text-slate-900 mb-2">Unique Contribution</h3>
+                            <p class="text-slate-700 text-center">I can offer a fresh perspective and contribute to problem-solving within an AI research team through my unique blend of theoretical rigor in regret analysis, practical experience in high-dimensional continuous control, and a strong understanding of distributional RL's nuances.</p>
+                        </div>
                     </div>
                 </div>
             </div>
