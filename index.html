@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- MathJax CDN for LaTeX rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
     <!-- Chosen Palette: Tailwind CSS Slate with Sky Blue accents -->
     <!-- Application Structure Plan: A single-page, scrollable interactive portfolio replacing a linear slide deck. It uses a sticky top navigation for smooth scrolling to thematic sections: Hero, Introduction (now with interactive hover-to-reveal cards), Research (interactive cards with details-on-click for three key papers), Vision, and Synergy with Leading AI Research. This structure allows non-linear exploration by interviewers, enabling them to quickly access the most relevant information (e.g., jump straight to research) while still presenting a cohesive narrative. It's more engaging and web-native than a simple slide presentation. -->
     <!-- Visualization & Content Choices: 
@@ -89,13 +91,12 @@
                  <img src="img/img_cth.jpg" alt="Taehyun Cho's professional profile photo" class="w-full h-full object-cover">
             </div>
             <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">Advancing Intelligence Through Reinforcement Learning</h1>
-            <p class="text-lg text-slate-700 max-w-3xl mx-auto">I am Taehyun Cho, a researcher passionate about exploring the potential of reinforcement learning to solve complex problems and contribute to opening new frontiers in artificial intelligence. This portfolio highlights my work and vision, suitable for leading AI research labs.</p>
+            <p class="text-lg text-slate-700 max-w-3xl mx-auto">I am Taehyun Cho, a researcher passionate about exploring the potential of reinforcement learning to solve sequential decision-making problems under uncertainty and contribute to opening new frontiers in human-aligned AI.</p>
         </section>
 
         <section id="intro" class="py-20 bg-white/90 backdrop-blur-sm shadow-inner">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center text-slate-900 mb-2">My Journey: Passion for Reinforcement Learning</h2>
-                <p class="text-center text-slate-700 mb-12">This section introduces my academic background and motivation for research in reinforcement learning. Hover over each card to reveal details.</p>
+                <h2 class="text-3xl font-bold text-center text-slate-900 mb-2">Research Interest</h2>
                 <div class="grid md:grid-cols-3 gap-8 text-center">
                     <div class="bg-slate-100 p-8 rounded-2xl group relative overflow-hidden h-80 flex flex-col justify-center items-center shadow-lg transition-all duration-300 hover:shadow-xl">
                         <!-- Visual State (Default) -->
@@ -105,8 +106,9 @@
                         </div>
                         <!-- Text State (On Hover) -->
                         <div class="absolute inset-0 flex flex-col justify-center items-center p-8 bg-slate-100 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                            <h3 class="text-xl font-semibold text-slate-900 mb-2">Brief Background</h3>
-                            <p class="text-slate-700 text-center">I am a Ph.D. candidate in Electrical Engineering and Computer Science at Seoul National University, with extensive research conducted in Reinforcement Learning and Machine Learning.</p>
+                            <h3 class="text-xl font-semibold text-slate-900 mb-2">Background</h3>
+                            <p class="text-slate-700 text-center">I am a Ph.D. candidate in Electrical Engineering and Computer Science at Seoul National University, with extensive research conducted in Reinforcement Learning.
+                            I received my B.S. in Mathematics from Korea University.</p>
                         </div>
                     </div>
                     <div class="bg-slate-100 p-8 rounded-2xl group relative overflow-hidden h-80 flex flex-col justify-center items-center shadow-lg transition-all duration-300 hover:shadow-xl">
@@ -118,7 +120,7 @@
                         <!-- Text State (On Hover) -->
                         <div class="absolute inset-0 flex flex-col justify-center items-center p-8 bg-slate-100 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                             <h3 class="text-xl font-semibold text-slate-900 mb-2">Research Motivation</h3>
-                            <p class="text-slate-700 text-center">Drawn by the ability of RL to solve complex sequential decision-making problems, I embarked on research to address fundamental challenges in AI, particularly in sequential decision-making under uncertainty and human feedback.</p>
+                            <p class="text-slate-700 text-center">Drawn by the ability of RL to solve complex sequential decision-making problems, I embarked on research to address fundamental challenges in AI, particularly in <strong>sequential decision-making under uncertainty from human feedback.</strong></p>
                         </div>
                     </div>
                     <div class="bg-slate-100 p-8 rounded-2xl group relative overflow-hidden h-80 flex flex-col justify-center items-center shadow-lg transition-all duration-300 hover:shadow-xl">
@@ -130,7 +132,7 @@
                         <!-- Text State (On Hover) -->
                         <div class="absolute inset-0 flex flex-col justify-center items-center p-8 bg-slate-100 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                             <h3 class="text-xl font-semibold text-slate-900 mb-2">Core Research Themes</h3>
-                            <p class="text-slate-700 text-center">My research aims to answer fundamental questions in RL such as sample efficiency, generalization, safety, and aligning AI with human intentions, with a focus on Distributional Reinforcement Learning, Regret Analysis, and Reinforcement Learning from Human Feedback.</p>
+                            <p class="text-slate-700 text-center">My research aims to answer fundamental questions in RL such as sample efficiency, generalization, and aligning AI with human intentions, with a focus on <strong>Distributional Reinforcement Learning(DistRL), Reinforcement Learning from Human Feedback(RLHF), and Regret Analysis.</strong></p>
                         </div>
                     </div>
                 </div>
@@ -140,12 +142,11 @@
         <section id="research" class="py-20">
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl font-bold text-center text-slate-900 mb-2">Key Research</h2>
-                <p class="text-center text-slate-700 mb-12">This section highlights my core reinforcement learning research projects. Click on each card to learn more about the problem definition, approach, and key results.</p>
                 <div class="space-y-12">
                     <div class="bg-white p-8 rounded-2xl shadow-lg transition-shadow duration-300 hover:shadow-xl">
-                        <h3 class="text-2xl font-semibold text-slate-900 mb-4"> Policy-labeled Preference Learning, Is Preference Enough for RLHF?</h3>
+                        <h3 class="text-2xl font-semibold text-slate-900 mb-4"> Policy-labeled Preference Learning: Is Preference Enough for RLHF?</h3>
                         <p class="text-sm text-slate-600 mb-4">
-                            ICML 2025 <span class="text-red-600">Spotlight(Top 2.6%)</span> | Authors: <span class="font-bold">Taehyun Cho*</span>, Seokhun Ju*, Seungyub Han, Dohyeong Kim, Kyungjae Lee, Jungwoo Lee
+                            ICML 2025 <span class="text-red-600">Spotlight(Top 2.6%)</span> | <span class="font-bold">Taehyun Cho*</span>, Seokhun Ju*, Seungyub Han, Dohyeong Kim, Kyungjae Lee, Jungwoo Lee
                         </p>
                         <div class="grid md:grid-cols-2 gap-8">
                             <div>
@@ -170,7 +171,7 @@
                     <div class="bg-white p-8 rounded-2xl shadow-lg transition-shadow duration-300 hover:shadow-xl">
                         <h3 class="text-2xl font-semibold text-slate-900 mb-4"> Bellman Unbiasedness: Toward Provably Efficient Distributional Reinforcement Learning with Genenral Value Function Approximation</h3>
                         <p class="text-sm text-slate-600 mb-4">
-                            ICML 2025 | Authors: <span class="font-bold">Taehyun Cho</span>, Seungyub Han, Seokhun Ju, Dohyeong Kim, Kyungjae Lee, Jungwoo Lee
+                            ICML 2025 | <span class="font-bold">Taehyun Cho</span>, Seungyub Han, Seokhun Ju, Dohyeong Kim, Kyungjae Lee, Jungwoo Lee
                         </p>
                          <p class="text-slate-700 mb-4">This work provides a comprehensive theoretical understanding of Distributional Reinforcement Learning (DistRL) with general value function approximation, addressing the overlooked challenge of infinite-dimensionality of distributions. We introduce 'Bellman unbiasedness' and propose SF-LSVI, a provably efficient algorithm that achieves a tight regret bound, demonstrating that only moment functionals can exactly capture statistical information for efficient online distributional updates.</p>
                         <button class="research-toggle bg-sky-600 text-white px-5 py-2 rounded-xl hover:bg-sky-700 transition-colors duration-300" data-target="research-2-details">View Details</button>
@@ -184,7 +185,7 @@
                     <div class="bg-white p-8 rounded-2xl shadow-lg transition-shadow duration-300 hover:shadow-xl">
                         <h3 class="text-2xl font-semibold text-slate-900 mb-4">Core Research 3: Pitfall of Optimism: Distributional RL by Randomizing Risk Criterion (PQR)</h3>
                         <p class="text-sm text-slate-600 mb-4">
-                            NeurIPS 2023 | Authors: <span class="font-bold">Taehyun Cho</span>, Seungyub Han, Heesoo Lee, Dohyeong Kim, Kyungjae Lee, Jungwoo Lee
+                            NeurIPS 2023 | <span class="font-bold">Taehyun Cho</span>, Seungyub Han, Heesoo Lee, Dohyeong Kim, Kyungjae Lee, Jungwoo Lee
                         </p>
                          <p class="text-slate-700 mb-4">This paper addresses the issue of biased exploration in Distributional Reinforcement Learning (DistRL) caused by a one-sided tendency on risk when utilizing estimated uncertainty for optimistic exploration. We propose a novel algorithm, PQR (Perturbed Distributional Bellman Optimality Operator), that selects actions by randomizing risk criterion to avoid such biases, proving its convergence and optimality.</p>
                         <button class="research-toggle bg-sky-600 text-white px-5 py-2 rounded-xl hover:bg-sky-700 transition-colors duration-300" data-target="research-3-details">View Details</button>
@@ -290,19 +291,21 @@
             const researchChart1 = new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: ['Baseline A', 'Baseline B', 'Proposed Method (PPL)'],
+                    labels: ['SFT', 'PIQL', 'CPL', 'PPL'],
                     datasets: [{
-                        label: 'Performance Score',
-                        data: [75, 82, 95],
+                        label: 'Average Performance',
+                        data: [42.7, 49.5, 35.1, 59.6],
                         backgroundColor: [
-                            'rgba(100, 116, 139, 0.6)',
-                            'rgba(56, 189, 248, 0.6)',
-                            'rgba(14, 165, 233, 0.8)'
+                            'rgba(107, 114, 128, 0.6)',
+                            'rgba(132, 204, 22, 0.6)',
+                            'rgba(59, 130, 246, 0.6)',
+                            'rgba(239, 68, 68, 0.6)'
                         ],
                         borderColor: [
-                            'rgba(100, 116, 139, 1)',
-                            'rgba(56, 189, 248, 1)',
-                            'rgba(14, 165, 233, 1)'
+                            'rgba(107, 114, 128, 1)',
+                            'rgba(132, 204, 22, 1)',
+                            'rgba(59, 130, 246, 1)',
+                            'rgba(239, 68, 68, 1)'
                         ],
                         borderWidth: 1
                     }]
