@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Talium Cho | DeepMind Interview Portfolio</title>
+    <title>Taehyun Cho | AI Research Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
     <!-- Chosen Palette: Tailwind CSS Slate -->
-    <!-- Application Structure Plan: A single-page, scrollable interactive portfolio replacing a linear slide deck. It uses a sticky top navigation for smooth scrolling to thematic sections: Hero, Introduction, Research (interactive cards with details-on-click for three key papers), Vision (now includes an LLM-powered research idea generator), Synergy with DeepMind, and Contact. This structure allows non-linear exploration by interviewers, enabling them to quickly access the most relevant information (e.g., jump straight to research) while still presenting a cohesive narrative. It's more engaging and web-native than a simple slide presentation. -->
+    <!-- Application Structure Plan: A single-page, scrollable interactive portfolio replacing a linear slide deck. It uses a sticky top navigation for smooth scrolling to thematic sections: Hero, Introduction, Research (interactive cards with details-on-click for three key papers), Vision, and Synergy with Leading AI Research. This structure allows non-linear exploration by interviewers, enabling them to quickly access the most relevant information (e.g., jump straight to research) while still presenting a cohesive narrative. It's more engaging and web-native than a simple slide presentation. -->
     <!-- Visualization & Content Choices: 
     - Report Info: Core Research 1 (PPL) - Performance comparison.
     - Goal: Compare.
@@ -18,18 +18,12 @@
     - Interaction: Click card to expand text, hover over chart bars for tooltips with precise data.
     - Justification: This effectively summarizes a research project, presenting the key takeaway (performance) visually and allowing a deeper dive into the text on demand, which is ideal for an audience with limited time but a need for detail.
     - Library/Method: Chart.js (Canvas) for the bar chart. HTML/CSS/JS for the interactive card.
-    - Report Info: Synergy with DeepMind - Connecting candidate's work to DeepMind's.
+    - Report Info: Synergy with Leading AI Research - Connecting candidate's work to a leading AI lab's pillars.
     - Goal: Show Relationships.
-    - Viz/Presentation Method: A responsive grid layout where each grid item is a card that visually links a candidate's research theme to a DeepMind pillar.
+    - Viz/Presentation Method: A responsive grid layout where each grid item is a card that visually links a candidate's research theme to a broader AI research pillar.
     - Interaction: Subtle hover effects on cards.
     - Justification: This clearly and directly addresses the "fit" question, making the connections explicit and easy to scan, which is more impactful than a simple text block.
     - Library/Method: HTML/Tailwind CSS.
-    - Report Info: Research Vision - Future research directions, showcasing innovative thinking and AI application.
-    - Goal: Inform & Engage (showcase innovative thinking and AI application).
-    - Viz/Presentation Method: Text input for user's research interest, button to trigger LLM, and a display area for generated research ideas.
-    - Interaction: User types, clicks button, LLM generates ideas.
-    - Justification: Directly demonstrates the candidate's ability to leverage advanced AI (Gemini API) for research ideation, aligning with DeepMind's innovative spirit. It's an active, engaging feature that goes beyond static text.
-    - Library/Method: Gemini API (gemini-2.0-flash) for text generation, HTML/CSS/JS for UI and API call.
     -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
@@ -62,12 +56,12 @@
 
     <header id="header" class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
         <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <a href="#home" class="text-xl font-bold text-slate-800">Talium Cho</a>
+            <a href="#home" class="text-xl font-bold text-slate-800">Taehyun Cho</a>
             <div class="hidden md:flex space-x-8">
                 <a href="#intro" class="nav-link text-slate-600 hover:text-sky-500 transition-colors duration-300">Introduction</a>
                 <a href="#research" class="nav-link text-slate-600 hover:text-sky-500 transition-colors duration-300">Key Research</a>
                 <a href="#vision" class="nav-link text-slate-600 hover:text-sky-500 transition-colors duration-300">Research Vision</a>
-                <a href="#synergy" class="nav-link text-slate-600 hover:text-sky-500 transition-colors duration-300">Synergy with DeepMind</a>
+                <a href="#synergy" class="nav-link text-slate-600 hover:text-sky-500 transition-colors duration-300">Synergy with Leading AI Research</a>
             </div>
             <button id="mobile-menu-button" class="md:hidden text-slate-800">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -79,17 +73,17 @@
             <a href="#intro" class="block py-2 px-6 text-sm text-slate-600 hover:bg-slate-100">Introduction</a>
             <a href="#research" class="block py-2 px-6 text-sm text-slate-600 hover:bg-slate-100">Key Research</a>
             <a href="#vision" class="block py-2 px-6 text-sm text-slate-600 hover:bg-slate-100">Research Vision</a>
-            <a href="#synergy" class="block py-2 px-6 text-sm text-slate-600 hover:bg-slate-100">Synergy with DeepMind</a>
+            <a href="#synergy" class="block py-2 px-6 text-sm text-slate-600 hover:bg-slate-100">Synergy with Leading AI Research</a>
         </div>
     </header>
 
     <main>
         <section id="home" class="container mx-auto px-6 py-20 md:py-32 text-center">
-            <div class="w-24 h-24 mx-auto bg-slate-300 rounded-full mb-6 flex items-center justify-center">
-                 <span class="text-slate-500 text-sm">Photo</span>
+            <div class="w-24 h-24 mx-auto bg-slate-300 rounded-full mb-6 overflow-hidden">
+                 <img src="img/img_cth.jpg" alt="Taehyun Cho Profile Photo" class="w-full h-full object-cover">
             </div>
             <h1 class="text-4xl md:text-5xl font-bold text-slate-800 mb-4">Advancing Intelligence Through Reinforcement Learning</h1>
-            <p class="text-lg text-slate-600 max-w-3xl mx-auto">I am Talium Cho, applying for a Research Scientist/Postdoc position at Google DeepMind. I am passionate about exploring the potential of reinforcement learning to solve complex problems and contribute to opening new frontiers in artificial intelligence.</p>
+            <p class="text-lg text-slate-600 max-w-3xl mx-auto">I am Taehyun Cho, a researcher passionate about exploring the potential of reinforcement learning to solve complex problems and contribute to opening new frontiers in artificial intelligence. This portfolio highlights my work and vision, suitable for leading AI research labs.</p>
         </section>
 
         <section id="intro" class="py-20 bg-white">
@@ -99,15 +93,15 @@
                 <div class="grid md:grid-cols-3 gap-8 text-center">
                     <div class="bg-slate-50 p-8 rounded-lg">
                         <h3 class="text-xl font-semibold text-slate-800 mb-2">Brief Background</h3>
-                        <p class="text-slate-600">I hold a Ph.D. in Computer Science, with extensive research conducted in Reinforcement Learning and Machine Learning.</p>
+                        <p class="text-slate-600">I am a Ph.D. candidate in Electrical Engineering and Computer Science at Seoul National University, with extensive research conducted in Reinforcement Learning and Machine Learning.</p>
                     </div>
                     <div class="bg-slate-50 p-8 rounded-lg">
                         <h3 class="text-xl font-semibold text-slate-800 mb-2">Research Motivation</h3>
-                        <p class="text-slate-600">Drawn by the ability of RL to solve complex sequential decision-making problems, I embarked on research to address fundamental challenges in AI.</p>
+                        <p class="text-slate-600">Drawn by the ability of RL to solve complex sequential decision-making problems, I embarked on research to address fundamental challenges in AI, particularly in sequential decision-making under uncertainty and human feedback.</p>
                     </div>
                     <div class="bg-slate-50 p-8 rounded-lg">
                         <h3 class="text-xl font-semibold text-slate-800 mb-2">Core Research Themes</h3>
-                        <p class="text-slate-600">My research aims to answer fundamental questions in RL such as sample efficiency, generalization, safety, and aligning AI with human intentions.</p>
+                        <p class="text-slate-600">My research aims to answer fundamental questions in RL such as sample efficiency, generalization, safety, and aligning AI with human intentions, with a focus on Distributional Reinforcement Learning, Regret Analysis, and Reinforcement Learning from Human Feedback.</p>
                     </div>
                 </div>
             </div>
@@ -168,7 +162,7 @@
         <section id="vision" class="py-20 bg-white">
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl font-bold text-center text-slate-800 mb-2">Towards the Future: Next Steps in Reinforcement Learning</h2>
-                <p class="text-center text-slate-500 mb-12">This section presents my vision for the future of reinforcement learning and the research directions I aspire to contribute to at DeepMind. Below, the ✨ **Research Idea Generator** ✨ allows you to explore new ideas linked to DeepMind's research based on your interests.</p>
+                <p class="text-center text-slate-500 mb-12">This section presents my vision for the future of reinforcement learning and the research directions I aspire to contribute to at a leading AI research lab.</p>
                 <div class="grid md:grid-cols-3 gap-8 mb-12">
                     <div class="text-center">
                         <div class="text-sky-500 mb-4">
@@ -188,27 +182,8 @@
                         <div class="text-sky-500 mb-4">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.657 7.343A8 8 0 0117.657 18.657z" /></svg>
                         </div>
-                        <h3 class="text-xl font-semibold text-slate-800 mb-2">Next Steps at DeepMind</h3>
-                        <p class="text-slate-600">At DeepMind, I'm eager to explore how regret-based preference learning can be extended to multi-modal RLHF for complex robotic tasks, or investigate the theoretical underpinnings of provably efficient distributional RL in real-world, high-dimensional settings. I'm also keen to contribute to research on AI safety and alignment, ensuring that powerful RL agents act in beneficial ways.</p>
-                    </div>
-                </div>
-
-                <div class="max-w-3xl mx-auto bg-slate-50 p-8 rounded-lg shadow-inner">
-                    <h3 class="text-xl font-semibold text-slate-800 mb-4 text-center">✨ Research Idea Generator ✨</h3>
-                    <p class="text-slate-600 mb-4 text-center">Enter your current research interest, and the Gemini model will suggest innovative reinforcement learning research ideas aligned with DeepMind's direction.</p>
-                    <textarea id="research-interest-input" class="w-full p-3 rounded-md border border-slate-300 focus:ring-sky-500 focus:border-sky-500 mb-4 text-slate-700" rows="4" placeholder="e.g., Developing new offline RL algorithms for improved sample efficiency"></textarea>
-                    <button id="generate-ideas-button" class="w-full bg-sky-600 text-white px-6 py-3 rounded-md hover:bg-sky-700 transition-colors font-semibold flex items-center justify-center">
-                        <span id="button-text">✨ Generate New Research Ideas ✨</span>
-                        <svg id="loading-spinner" class="animate-spin h-5 w-5 text-white ml-2 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                        </svg>
-                    </button>
-                    <div id="generated-ideas-output" class="mt-6 p-4 bg-white rounded-lg border border-slate-200 hidden">
-                        <h4 class="font-semibold text-slate-700 mb-2">Generated Ideas:</h4>
-                        <ul class="list-disc list-inside text-slate-600 space-y-2">
-                            <!-- Generated ideas will be inserted here -->
-                        </ul>
+                        <h3 class="text-xl font-semibold text-slate-800 mb-2">Next Steps at a Leading AI Lab</h3>
+                        <p class="text-slate-600">At a leading AI research lab, I'm eager to explore how regret-based preference learning can be extended to multi-modal RLHF for complex robotic tasks, or investigate the theoretical underpinnings of provably efficient distributional RL in real-world, high-dimensional settings. I'm also keen to contribute to research on AI safety and alignment, ensuring that powerful RL agents act in beneficial ways.</p>
                     </div>
                 </div>
             </div>
@@ -216,20 +191,20 @@
 
         <section id="synergy" class="py-20">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center text-slate-800 mb-2">Advancing Intelligence Together with DeepMind</h2>
-                <p class="text-center text-slate-500 mb-12">My research and vision align with DeepMind's goals, creating a strong synergy for future advancements.</p>
+                <h2 class="text-3xl font-bold text-center text-slate-800 mb-2">Advancing Intelligence Together with Leading AI Research</h2>
+                <p class="text-center text-slate-500 mb-12">My research and vision align with the goals of leading AI research organizations, creating a strong synergy for future advancements.</p>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div class="bg-white p-6 rounded-lg shadow-md">
-                        <h3 class="font-semibold text-slate-800 mb-2">Research Alignment: DeepMind's Pillars</h3>
-                        <p class="text-slate-600">My research in preference learning and provably efficient distributional RL can contribute to DeepMind's work on RLHF for large language models, robotics control, or scientific discovery platforms, addressing challenges of aligning complex AI systems with human intentions, ensuring robust and safe exploration, and handling uncertainty in real-world applications.</p>
+                        <h3 class="font-semibold text-slate-800 mb-2">Research Alignment: Core AI Pillars</h3>
+                        <p class="text-slate-600">My research in preference learning and provably efficient distributional RL can contribute to a leading AI research lab's work on RLHF for large language models, robotics control, or scientific discovery platforms, addressing challenges of aligning complex AI systems with human intentions, ensuring robust and safe exploration, and handling uncertainty in real-world applications.</p>
                     </div>
                     <div class="bg-white p-6 rounded-lg shadow-md">
                         <h3 class="font-semibold text-slate-800 mb-2">Values and Cultural Fit</h3>
-                        <p class="text-slate-600">My collaborative and open research style aligns well with DeepMind's culture, and I believe we can create a greater impact together.</p>
+                        <p class="text-slate-600">My collaborative and open research style aligns well with the culture of top research institutions, and I believe we can create a greater impact together.</p>
                     </div>
                     <div class="bg-white p-6 rounded-lg shadow-md">
                         <h3 class="font-semibold text-slate-800 mb-2">Unique Contribution</h3>
-                        <p class="text-slate-600">I can offer a fresh perspective and contribute to problem-solving within the DeepMind team through my unique blend of theoretical rigor in regret analysis, practical experience in high-dimensional continuous control, and a strong understanding of distributional RL's nuances.</p>
+                        <p class="text-slate-600">I can offer a fresh perspective and contribute to problem-solving within an AI research team through my unique blend of theoretical rigor in regret analysis, practical experience in high-dimensional continuous control, and a strong understanding of distributional RL's nuances.</p>
                     </div>
                 </div>
             </div>
@@ -241,8 +216,8 @@
             <h2 class="text-2xl font-bold mb-4">Questions & Answers</h2>
             <p class="mb-6">Thank you for your attention. Please feel free to ask any questions.</p>
             <div class="flex justify-center space-x-6">
-                <a href="mailto:talium.cho@example.com" class="hover:text-sky-400 transition-colors">Email</a>
-                <a href="https://linkedin.com/in/taliumcho" target="_blank" class="hover:text-sky-400 transition-colors">LinkedIn</a>
+                <a href="mailto:talium@cml.snu.ac.kr" class="hover:text-sky-400 transition-colors">Email</a>
+                <a href="https://linkedin.com/in/taehyuncho" target="_blank" class="hover:text-sky-400 transition-colors">LinkedIn</a>
                 <a href="https://talium0713.github.io" target="_blank" class="hover:text-sky-400 transition-colors">Personal Website</a>
             </div>
         </div>
@@ -352,70 +327,6 @@
                         link.classList.add('active');
                     }
                 });
-            });
-
-            // Gemini API Integration
-            const researchInterestInput = document.getElementById('research-interest-input');
-            const generateIdeasButton = document.getElementById('generate-ideas-button');
-            const generatedIdeasOutput = document.getElementById('generated-ideas-output');
-            const generatedIdeasList = generatedIdeasOutput.querySelector('ul');
-            const loadingSpinner = document.getElementById('loading-spinner');
-            const buttonText = document.getElementById('button-text');
-
-            generateIdeasButton.addEventListener('click', async () => {
-                const promptInput = researchInterestInput.value.trim();
-                if (!promptInput) {
-                    generatedIdeasList.innerHTML = '<li class="text-red-500">Please enter your research interest.</li>';
-                    generatedIdeasOutput.classList.remove('hidden');
-                    return;
-                }
-
-                generatedIdeasList.innerHTML = ''; // Clear previous ideas
-                generatedIdeasOutput.classList.remove('hidden');
-                buttonText.classList.add('hidden');
-                loadingSpinner.classList.remove('hidden');
-                generateIdeasButton.disabled = true;
-
-                try {
-                    let chatHistory = [];
-                    const prompt = `You are a senior research scientist at Google DeepMind. Based on my research interest in reinforcement learning: "${promptInput}", propose 3 innovative research ideas that closely align with Google DeepMind's current research directions (e.g., AGI, AI safety, scientific discovery, sample efficiency, generalization, multi-agent systems). Each idea should have a concise title and a one-sentence summary. Respond in English.`;
-                    chatHistory.push({ role: "user", parts: [{ text: prompt }] });
-                    const payload = { contents: chatHistory };
-                    const apiKey = ""; 
-                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
-
-                    const response = await fetch(apiUrl, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-                    const result = await response.json();
-
-                    if (result.candidates && result.candidates.length > 0 &&
-                        result.candidates[0].content && result.candidates[0].content.parts &&
-                        result.candidates[0].content.parts.length > 0) {
-                        const text = result.candidates[0].content.parts[0].text;
-                        const ideas = text.split('\n').filter(line => line.trim() !== '');
-                        if (ideas.length > 0) {
-                            ideas.forEach(idea => {
-                                const listItem = document.createElement('li');
-                                listItem.textContent = idea;
-                                generatedIdeasList.appendChild(listItem);
-                            });
-                        } else {
-                            generatedIdeasList.innerHTML = '<li>Unable to generate ideas. Please try again.</li>';
-                        }
-                    } else {
-                        generatedIdeasList.innerHTML = '<li>Unexpected response structure.</li>';
-                    }
-                } catch (error) {
-                    console.error('Error calling Gemini API:', error);
-                    generatedIdeasList.innerHTML = '<li>An error occurred while generating ideas.</li>';
-                } finally {
-                    loadingSpinner.classList.add('hidden');
-                    buttonText.classList.remove('hidden');
-                    generateIdeasButton.disabled = false;
-                }
             });
         });
     </script>
