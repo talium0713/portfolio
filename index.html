@@ -1,34 +1,40 @@
 <!DOCTYPE html>
-<html lang="ko" class="scroll-smooth">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[이름] | DeepMind 면접 포트폴리오</title>
+    <title>Talium Cho | DeepMind Interview Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
     <!-- Chosen Palette: Tailwind CSS Slate -->
-    <!-- Application Structure Plan: A single-page, scrollable interactive portfolio replacing a linear slide deck. It uses a sticky top navigation for smooth scrolling to thematic sections: Hero, Research (interactive cards with details-on-click), Vision, Synergy with DeepMind, and Contact. This structure allows non-linear exploration by interviewers, enabling them to quickly access the most relevant information (e.g., jump straight to research) while still presenting a cohesive narrative. It's more engaging and web-native than a simple slide presentation. -->
+    <!-- Application Structure Plan: A single-page, scrollable interactive portfolio replacing a linear slide deck. It uses a sticky top navigation for smooth scrolling to thematic sections: Hero, Introduction, Research (interactive cards with details-on-click for three key papers), Vision (now includes an LLM-powered research idea generator), Synergy with DeepMind, and Contact. This structure allows non-linear exploration by interviewers, enabling them to quickly access the most relevant information (e.g., jump straight to research) while still presenting a cohesive narrative. It's more engaging and web-native than a simple slide presentation. -->
     <!-- Visualization & Content Choices: 
-    - Report Info: Core Research 1 (Slide 3) - Performance comparison.
+    - Report Info: Core Research 1 (PPL) - Performance comparison.
     - Goal: Compare.
     - Viz/Presentation Method: Interactive card with an expandable details section and a bar chart.
     - Interaction: Click card to expand text, hover over chart bars for tooltips with precise data.
     - Justification: This effectively summarizes a research project, presenting the key takeaway (performance) visually and allowing a deeper dive into the text on demand, which is ideal for an audience with limited time but a need for detail.
     - Library/Method: Chart.js (Canvas) for the bar chart. HTML/CSS/JS for the interactive card.
-    - Report Info: Synergy with DeepMind (Slide 6) - Connecting candidate's work to DeepMind's.
+    - Report Info: Synergy with DeepMind - Connecting candidate's work to DeepMind's.
     - Goal: Show Relationships.
     - Viz/Presentation Method: A responsive grid layout where each grid item is a card that visually links a candidate's research theme to a DeepMind pillar.
     - Interaction: Subtle hover effects on cards.
     - Justification: This clearly and directly addresses the "fit" question, making the connections explicit and easy to scan, which is more impactful than a simple text block.
     - Library/Method: HTML/Tailwind CSS.
+    - Report Info: Research Vision - Future research directions, showcasing innovative thinking and AI application.
+    - Goal: Inform & Engage (showcase innovative thinking and AI application).
+    - Viz/Presentation Method: Text input for user's research interest, button to trigger LLM, and a display area for generated research ideas.
+    - Interaction: User types, clicks button, LLM generates ideas.
+    - Justification: Directly demonstrates the candidate's ability to leverage advanced AI (Gemini API) for research ideation, aligning with DeepMind's innovative spirit. It's an active, engaging feature that goes beyond static text.
+    - Library/Method: Gemini API (gemini-2.0-flash) for text generation, HTML/CSS/JS for UI and API call.
     -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
         body {
-            font-family: 'Noto Sans KR', sans-serif;
+            font-family: 'Inter', sans-serif;
             background-color: #f8fafc; /* slate-50 */
             color: #334155; /* slate-700 */
         }
@@ -56,12 +62,12 @@
 
     <header id="header" class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
         <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <a href="#home" class="text-xl font-bold text-slate-800">[이름]</a>
+            <a href="#home" class="text-xl font-bold text-slate-800">Talium Cho</a>
             <div class="hidden md:flex space-x-8">
-                <a href="#intro" class="nav-link text-slate-600 hover:text-sky-500 transition-colors duration-300">소개</a>
-                <a href="#research" class="nav-link text-slate-600 hover:text-sky-500 transition-colors duration-300">주요 연구</a>
-                <a href="#vision" class="nav-link text-slate-600 hover:text-sky-500 transition-colors duration-300">연구 비전</a>
-                <a href="#synergy" class="nav-link text-slate-600 hover:text-sky-500 transition-colors duration-300">DeepMind와의 시너지</a>
+                <a href="#intro" class="nav-link text-slate-600 hover:text-sky-500 transition-colors duration-300">Introduction</a>
+                <a href="#research" class="nav-link text-slate-600 hover:text-sky-500 transition-colors duration-300">Key Research</a>
+                <a href="#vision" class="nav-link text-slate-600 hover:text-sky-500 transition-colors duration-300">Research Vision</a>
+                <a href="#synergy" class="nav-link text-slate-600 hover:text-sky-500 transition-colors duration-300">Synergy with DeepMind</a>
             </div>
             <button id="mobile-menu-button" class="md:hidden text-slate-800">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -70,38 +76,38 @@
             </button>
         </nav>
         <div id="mobile-menu" class="hidden md:hidden bg-white">
-            <a href="#intro" class="block py-2 px-6 text-sm text-slate-600 hover:bg-slate-100">소개</a>
-            <a href="#research" class="block py-2 px-6 text-sm text-slate-600 hover:bg-slate-100">주요 연구</a>
-            <a href="#vision" class="block py-2 px-6 text-sm text-slate-600 hover:bg-slate-100">연구 비전</a>
-            <a href="#synergy" class="block py-2 px-6 text-sm text-slate-600 hover:bg-slate-100">DeepMind와의 시너지</a>
+            <a href="#intro" class="block py-2 px-6 text-sm text-slate-600 hover:bg-slate-100">Introduction</a>
+            <a href="#research" class="block py-2 px-6 text-sm text-slate-600 hover:bg-slate-100">Key Research</a>
+            <a href="#vision" class="block py-2 px-6 text-sm text-slate-600 hover:bg-slate-100">Research Vision</a>
+            <a href="#synergy" class="block py-2 px-6 text-sm text-slate-600 hover:bg-slate-100">Synergy with DeepMind</a>
         </div>
     </header>
 
     <main>
         <section id="home" class="container mx-auto px-6 py-20 md:py-32 text-center">
             <div class="w-24 h-24 mx-auto bg-slate-300 rounded-full mb-6 flex items-center justify-center">
-                 <span class="text-slate-500 text-sm">사진</span>
+                 <span class="text-slate-500 text-sm">Photo</span>
             </div>
-            <h1 class="text-4xl md:text-5xl font-bold text-slate-800 mb-4">강화 학습을 통한 지능의 발전</h1>
-            <p class="text-lg text-slate-600 max-w-3xl mx-auto">Google DeepMind 연구 과학자/포닥 직무에 지원하는 [이름]입니다. 복잡한 문제 해결을 위한 강화 학습의 잠재력을 탐구하고, 인공지능의 새로운 지평을 여는 데 기여하고 싶습니다.</p>
+            <h1 class="text-4xl md:text-5xl font-bold text-slate-800 mb-4">Advancing Intelligence Through Reinforcement Learning</h1>
+            <p class="text-lg text-slate-600 max-w-3xl mx-auto">I am Talium Cho, applying for a Research Scientist/Postdoc position at Google DeepMind. I am passionate about exploring the potential of reinforcement learning to solve complex problems and contribute to opening new frontiers in artificial intelligence.</p>
         </section>
 
         <section id="intro" class="py-20 bg-white">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center text-slate-800 mb-2">저의 여정: 강화 학습에 대한 열정</h2>
-                <p class="text-center text-slate-500 mb-12">이 섹션에서는 저의 학문적 배경과 강화 학습 연구에 대한 동기를 소개합니다.</p>
+                <h2 class="text-3xl font-bold text-center text-slate-800 mb-2">My Journey: Passion for Reinforcement Learning</h2>
+                <p class="text-center text-slate-500 mb-12">This section introduces my academic background and motivation for research in reinforcement learning.</p>
                 <div class="grid md:grid-cols-3 gap-8 text-center">
                     <div class="bg-slate-50 p-8 rounded-lg">
-                        <h3 class="text-xl font-semibold text-slate-800 mb-2">간략한 배경</h3>
-                        <p class="text-slate-600">[박사 학위]를 취득했으며, [주요 연구 분야]에 대한 깊이 있는 연구를 수행했습니다.</p>
+                        <h3 class="text-xl font-semibold text-slate-800 mb-2">Brief Background</h3>
+                        <p class="text-slate-600">I hold a Ph.D. in Computer Science, with extensive research conducted in Reinforcement Learning and Machine Learning.</p>
                     </div>
                     <div class="bg-slate-50 p-8 rounded-lg">
-                        <h3 class="text-xl font-semibold text-slate-800 mb-2">연구 동기</h3>
-                        <p class="text-slate-600">강화 학습의 [매력적인 점]에 이끌려, [해결하고 싶은 문제]를 해결하고자 연구를 시작했습니다.</p>
+                        <h3 class="text-xl font-semibold text-slate-800 mb-2">Research Motivation</h3>
+                        <p class="text-slate-600">Drawn by the ability of RL to solve complex sequential decision-making problems, I embarked on research to address fundamental challenges in AI.</p>
                     </div>
                     <div class="bg-slate-50 p-8 rounded-lg">
-                        <h3 class="text-xl font-semibold text-slate-800 mb-2">핵심 연구 테마</h3>
-                        <p class="text-slate-600">저의 연구는 샘플 효율성, 일반화, 안전성과 같은 강화 학습의 근본적인 질문에 답하는 것을 목표로 합니다.</p>
+                        <h3 class="text-xl font-semibold text-slate-800 mb-2">Core Research Themes</h3>
+                        <p class="text-slate-600">My research aims to answer fundamental questions in RL such as sample efficiency, generalization, safety, and aligning AI with human intentions.</p>
                     </div>
                 </div>
             </div>
@@ -109,24 +115,24 @@
 
         <section id="research" class="py-20">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center text-slate-800 mb-2">주요 연구</h2>
-                <p class="text-center text-slate-500 mb-12">이 섹션에서는 저의 핵심 강화 학습 연구들을 소개합니다. 각 카드를 클릭하여 문제 정의, 접근 방식, 그리고 주요 결과에 대해 더 자세히 알아보세요.</p>
+                <h2 class="text-3xl font-bold text-center text-slate-800 mb-2">Key Research</h2>
+                <p class="text-center text-slate-500 mb-12">This section highlights my core reinforcement learning research projects. Click on each card to learn more about the problem definition, approach, and key results.</p>
                 <div class="space-y-12">
                     <div class="bg-white p-8 rounded-lg shadow-md transition-shadow duration-300 hover:shadow-xl">
-                        <h3 class="text-2xl font-semibold text-slate-800 mb-4">핵심 연구 1: [프로젝트 제목]</h3>
+                        <h3 class="text-2xl font-semibold text-slate-800 mb-4">Core Research 1: Policy-labeled Preference Learning (PPL) for RLHF</h3>
                         <div class="grid md:grid-cols-2 gap-8">
                             <div>
-                                <h4 class="font-semibold text-slate-700 mb-2">요약</h4>
-                                <p class="text-slate-600 mb-4">이 연구는 강화 학습의 [특정 문제]를 해결하는 것을 목표로 합니다. 저희는 [핵심 아이디어]에 기반한 새로운 접근 방식을 제안했습니다.</p>
-                                <button class="research-toggle bg-sky-500 text-white px-4 py-2 rounded-md hover:bg-sky-600 transition-colors" data-target="research-1-details">자세히 보기</button>
+                                <h4 class="font-semibold text-slate-700 mb-2">Summary</h4>
+                                <p class="text-slate-600 mb-4">This research addresses the challenge of inaccurate likelihood estimation in Reinforcement Learning from Human Feedback (RLHF) methods, particularly when trajectories are misinterpreted as optimal. We propose Policy-labeled Preference Learning (PPL), a novel framework that models human preferences with regret, explicitly incorporating behavior policy information to resolve likelihood mismatch issues. We also introduce a contrastive KL regularization to enhance sequential decision-making.</p>
+                                <button class="research-toggle bg-sky-500 text-white px-4 py-2 rounded-md hover:bg-sky-600 transition-colors" data-target="research-1-details">View Details</button>
                                 <div id="research-1-details" class="hidden mt-4 space-y-3 text-slate-600">
-                                    <p><strong>문제 정의:</strong> [해결하고자 했던 구체적인 문제에 대한 간결한 설명]</p>
-                                    <p><strong>접근 방식:</strong> [제안한 방법론/알고리즘의 핵심 아이디어에 대한 설명. 기술적 세부사항은 최소화]</p>
-                                    <p><strong>영향 및 중요성:</strong> [이 연구가 RL 분야 또는 더 넓은 AI 분야에 미칠 수 있는 영향]</p>
+                                    <p><strong>Problem Definition:</strong> Existing RLHF methods often misinterpret trajectories as being generated by an optimal policy, leading to inaccurate likelihood estimation and suboptimal learning, especially in stochastic environments and offline settings where data comes from diverse policies without explicit behavior policy information.</p>
+                                    <p><strong>Approach:</strong> Inspired by Direct Preference Optimization (DPO), PPL leverages regret-based preference modeling and explicitly labels the behavior policy. This disentangles the effects of environmental stochasticity from policy suboptimality. We also introduce a contrastive KL regularization, derived from regret-based principles, to align policies with preferred trajectories while contrasting against less preferred ones.</p>
+                                    <p><strong>Impact & Significance:</strong> PPL significantly improves offline RLHF performance and demonstrates effectiveness in online settings, particularly in high-dimensional continuous control tasks. It offers a more robust and accurate way to learn from human preferences, crucial for applications like LLMs and robotic manipulation.</p>
                                 </div>
                             </div>
                             <div>
-                                <h4 class="font-semibold text-slate-700 mb-2 text-center">주요 결과: 성능 비교</h4>
+                                <h4 class="font-semibold text-slate-700 mb-2 text-center">Key Results: Performance Comparison</h4>
                                 <div class="chart-container">
                                     <canvas id="researchChart1"></canvas>
                                 </div>
@@ -135,13 +141,24 @@
                     </div>
 
                     <div class="bg-white p-8 rounded-lg shadow-md transition-shadow duration-300 hover:shadow-xl">
-                        <h3 class="text-2xl font-semibold text-slate-800 mb-4">핵심 연구 2: [프로젝트 제목]</h3>
-                         <p class="text-slate-600 mb-4">이 연구는 [이전 연구와 다른 측면]을 탐구하여 강화 학습 에이전트의 [특정 능력]을 향상시키는 데 중점을 둡니다.</p>
-                        <button class="research-toggle bg-sky-500 text-white px-4 py-2 rounded-md hover:bg-sky-600 transition-colors" data-target="research-2-details">자세히 보기</button>
+                        <h3 class="text-2xl font-semibold text-slate-800 mb-4">Core Research 2: Bellman Unbiasedness: Provably Efficient Distributional RL</h3>
+                         <p class="text-slate-600 mb-4">This work provides a comprehensive theoretical understanding of Distributional Reinforcement Learning (DistRL) with general value function approximation, addressing the overlooked challenge of infinite-dimensionality of distributions. We introduce 'Bellman unbiasedness' and propose SF-LSVI, a provably efficient algorithm that achieves a tight regret bound, demonstrating that only moment functionals can exactly capture statistical information for efficient online distributional updates.</p>
+                        <button class="research-toggle bg-sky-500 text-white px-4 py-2 rounded-md hover:bg-sky-600 transition-colors" data-target="research-2-details">View Details</button>
                         <div id="research-2-details" class="hidden mt-4 space-y-3 text-slate-600">
-                            <p><strong>문제 정의:</strong> [두 번째 프로젝트가 해결하고자 했던 문제]</p>
-                            <p><strong>접근 방식:</strong> [두 번째 프로젝트의 독창적인 접근 방식]</p>
-                            <p><strong>주요 결과 및 기여:</strong> [두 번째 프로젝트의 핵심 성과 및 기여]</p>
+                            <p><strong>Problem Definition:</strong> Despite DistRL's benefits in capturing environmental stochasticity, a comprehensive theoretical understanding, especially regarding the infinite dimensionality of distributions and provably efficient online updates, remains elusive. Not all statistical functionals can be exactly learned through the Bellman operator.</p>
+                            <p><strong>Approach:</strong> We introduce Bellman unbiasedness as a key notion for exactly learnable and provably efficient distributional updates. Our theoretical results show that only moment functionals can precisely capture statistical information. We propose SF-LSVI, an algorithm that efficiently explores from a regret minimization perspective while simultaneously performing distributional Bellman updates in an online manner.</p>
+                            <p><strong>Impact & Significance:</strong> SF-LSVI achieves a tight regret bound of $\tilde{O}(d_{E}H^{\frac{3}{2}}\sqrt{K})$, providing strong theoretical guarantees for efficient learning in DistRL. This work advances the theoretical foundations of DistRL, enabling safer and more effective decision-making in complex real-world situations by accounting for various risks.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-lg shadow-md transition-shadow duration-300 hover:shadow-xl">
+                        <h3 class="text-2xl font-semibold text-slate-800 mb-4">Core Research 3: Pitfall of Optimism: Distributional RL by Randomizing Risk Criterion (PQR)</h3>
+                         <p class="text-slate-600 mb-4">This paper addresses the issue of biased exploration in Distributional Reinforcement Learning (DistRL) caused by a one-sided tendency on risk when utilizing estimated uncertainty for optimistic exploration. We propose a novel algorithm, PQR (Perturbed Distributional Bellman Optimality Operator), that selects actions by randomizing risk criterion to avoid such biases, proving its convergence and optimality.</p>
+                        <button class="research-toggle bg-sky-500 text-white px-4 py-2 rounded-md hover:bg-sky-600 transition-colors" data-target="research-3-details">View Details</button>
+                        <div id="research-3-details" class="hidden mt-4 space-y-3 text-slate-600">
+                            <p><strong>Problem Definition:</strong> Optimistic exploration in DistRL, often relying on estimated variance, can lead to biased data collection and hinder convergence or performance. This 'one-sided tendency on risk' arises because using a fixed risk criterion for action selection might inadvertently promote risk-seeking behavior.</p>
+                            <p><strong>Approach:</strong> We introduce the Perturbed Distributional Bellman Optimality Operator (PDBOO) to address biased exploration. PQR randomizes the risk criterion for action selection, which promotes unbiased selection with regards to high intrinsic uncertainty. This approach ensures the method does not fall into biased exploration and is guaranteed to converge to an optimal return.</p>
+                            <p><strong>Impact & Significance:</strong> PQR empirically outperforms other existing distribution-based algorithms across various environments, including Atari 55 games, demonstrating its effectiveness in avoiding biased exploration and achieving optimal returns. This contributes to more robust and reliable exploration strategies in deep reinforcement learning.</p>
                         </div>
                     </div>
                 </div>
@@ -150,29 +167,48 @@
 
         <section id="vision" class="py-20 bg-white">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center text-slate-800 mb-2">미래를 향하여: 강화 학습의 다음 단계</h2>
-                <p class="text-center text-slate-500 mb-12">이 섹션에서는 제가 생각하는 강화 학습의 미래와 DeepMind에서 기여하고 싶은 연구 방향을 제시합니다.</p>
-                <div class="grid md:grid-cols-3 gap-8">
+                <h2 class="text-3xl font-bold text-center text-slate-800 mb-2">Towards the Future: Next Steps in Reinforcement Learning</h2>
+                <p class="text-center text-slate-500 mb-12">This section presents my vision for the future of reinforcement learning and the research directions I aspire to contribute to at DeepMind. Below, the ✨ **Research Idea Generator** ✨ allows you to explore new ideas linked to DeepMind's research based on your interests.</p>
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
                     <div class="text-center">
                         <div class="text-sky-500 mb-4">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
                         </div>
-                        <h3 class="text-xl font-semibold text-slate-800 mb-2">현재 도전 과제</h3>
-                        <p class="text-slate-600">[현재 RL 분야가 직면한 가장 큰 미해결 문제나 기회에 대한 생각]</p>
+                        <h3 class="text-xl font-semibold text-slate-800 mb-2">Current Challenges</h3>
+                        <p class="text-slate-600">The primary challenges in RL include improving sample efficiency, achieving robust generalization across diverse environments, ensuring safety and interpretability of learned policies, and scaling to real-world complexities.</p>
                     </div>
                     <div class="text-center">
                         <div class="text-sky-500 mb-4">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5.636 18.364a9 9 0 010-12.728m12.728 0a9 9 0 010 12.728m-9.9-2.829a5 5 0 010-7.07m7.072 0a5 5 0 010 7.07M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                         </div>
-                        <h3 class="text-xl font-semibold text-slate-800 mb-2">장기적인 연구 목표</h3>
-                        <p class="text-slate-600">[앞으로 집중하고 싶은 문제의 종류와 장기적인 연구 목표]</p>
+                        <h3 class="text-xl font-semibold text-slate-800 mb-2">Long-term Research Goals</h3>
+                        <p class="text-slate-600">My long-term goal is to develop foundational RL algorithms that enable agents to learn efficiently from limited data, generalize to novel tasks and environments, and operate safely and reliably in human-centric applications. I aim to focus on areas like multi-agent systems, lifelong learning, and integrating symbolic reasoning with deep RL.</p>
                     </div>
                     <div class="text-center">
                         <div class="text-sky-500 mb-4">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.657 7.343A8 8 0 0117.657 18.657z" /></svg>
                         </div>
-                        <h3 class="text-xl font-semibold text-slate-800 mb-2">DeepMind에서의 다음 단계</h3>
-                        <p class="text-slate-600">[DeepMind에서 시작하고 싶은 구체적인 연구 아이디어나 탐구하고 싶은 주제]</p>
+                        <h3 class="text-xl font-semibold text-slate-800 mb-2">Next Steps at DeepMind</h3>
+                        <p class="text-slate-600">At DeepMind, I'm eager to explore how regret-based preference learning can be extended to multi-modal RLHF for complex robotic tasks, or investigate the theoretical underpinnings of provably efficient distributional RL in real-world, high-dimensional settings. I'm also keen to contribute to research on AI safety and alignment, ensuring that powerful RL agents act in beneficial ways.</p>
+                    </div>
+                </div>
+
+                <div class="max-w-3xl mx-auto bg-slate-50 p-8 rounded-lg shadow-inner">
+                    <h3 class="text-xl font-semibold text-slate-800 mb-4 text-center">✨ Research Idea Generator ✨</h3>
+                    <p class="text-slate-600 mb-4 text-center">Enter your current research interest, and the Gemini model will suggest innovative reinforcement learning research ideas aligned with DeepMind's direction.</p>
+                    <textarea id="research-interest-input" class="w-full p-3 rounded-md border border-slate-300 focus:ring-sky-500 focus:border-sky-500 mb-4 text-slate-700" rows="4" placeholder="e.g., Developing new offline RL algorithms for improved sample efficiency"></textarea>
+                    <button id="generate-ideas-button" class="w-full bg-sky-600 text-white px-6 py-3 rounded-md hover:bg-sky-700 transition-colors font-semibold flex items-center justify-center">
+                        <span id="button-text">✨ Generate New Research Ideas ✨</span>
+                        <svg id="loading-spinner" class="animate-spin h-5 w-5 text-white ml-2 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                    </button>
+                    <div id="generated-ideas-output" class="mt-6 p-4 bg-white rounded-lg border border-slate-200 hidden">
+                        <h4 class="font-semibold text-slate-700 mb-2">Generated Ideas:</h4>
+                        <ul class="list-disc list-inside text-slate-600 space-y-2">
+                            <!-- Generated ideas will be inserted here -->
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -180,20 +216,20 @@
 
         <section id="synergy" class="py-20">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center text-slate-800 mb-2">DeepMind와 함께하는 지능의 발전</h2>
-                <p class="text-center text-slate-500 mb-12">저의 연구와 비전이 DeepMind의 목표와 어떻게 시너지를 낼 수 있는지 보여줍니다.</p>
+                <h2 class="text-3xl font-bold text-center text-slate-800 mb-2">Advancing Intelligence Together with DeepMind</h2>
+                <p class="text-center text-slate-500 mb-12">My research and vision align with DeepMind's goals, creating a strong synergy for future advancements.</p>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div class="bg-white p-6 rounded-lg shadow-md">
-                        <h3 class="font-semibold text-slate-800 mb-2">연구 연관성: [AlphaFold/Gato 등]</h3>
-                        <p class="text-slate-600">저의 [관련 연구 분야] 연구는 DeepMind의 [특정 프로젝트]가 직면한 [과제]를 해결하는 데 기여할 수 있습니다.</p>
+                        <h3 class="font-semibold text-slate-800 mb-2">Research Alignment: DeepMind's Pillars</h3>
+                        <p class="text-slate-600">My research in preference learning and provably efficient distributional RL can contribute to DeepMind's work on RLHF for large language models, robotics control, or scientific discovery platforms, addressing challenges of aligning complex AI systems with human intentions, ensuring robust and safe exploration, and handling uncertainty in real-world applications.</p>
                     </div>
                     <div class="bg-white p-6 rounded-lg shadow-md">
-                        <h3 class="font-semibold text-slate-800 mb-2">가치 및 문화적 적합성</h3>
-                        <p class="text-slate-600">협업과 개방성을 중시하는 저의 연구 스타일은 DeepMind의 문화와 잘 부합하며, 함께 더 큰 영향력을 만들 수 있다고 믿습니다.</p>
+                        <h3 class="font-semibold text-slate-800 mb-2">Values and Cultural Fit</h3>
+                        <p class="text-slate-600">My collaborative and open research style aligns well with DeepMind's culture, and I believe we can create a greater impact together.</p>
                     </div>
                     <div class="bg-white p-6 rounded-lg shadow-md">
-                        <h3 class="font-semibold text-slate-800 mb-2">고유한 기여</h3>
-                        <p class="text-slate-600">저는 [자신만의 독특한 기술/관점]을 통해 DeepMind 팀에 새로운 시각을 제공하고 문제 해결에 기여할 수 있습니다.</p>
+                        <h3 class="font-semibold text-slate-800 mb-2">Unique Contribution</h3>
+                        <p class="text-slate-600">I can offer a fresh perspective and contribute to problem-solving within the DeepMind team through my unique blend of theoretical rigor in regret analysis, practical experience in high-dimensional continuous control, and a strong understanding of distributional RL's nuances.</p>
                     </div>
                 </div>
             </div>
@@ -202,12 +238,12 @@
 
     <footer class="bg-slate-800 text-slate-300 py-12">
         <div class="container mx-auto px-6 text-center">
-            <h2 class="text-2xl font-bold mb-4">질문 & 답변</h2>
-            <p class="mb-6">경청해 주셔서 감사합니다. 질문 있으시면 편하게 해주세요.</p>
+            <h2 class="text-2xl font-bold mb-4">Questions & Answers</h2>
+            <p class="mb-6">Thank you for your attention. Please feel free to ask any questions.</p>
             <div class="flex justify-center space-x-6">
-                <a href="mailto:[your-email@example.com]" class="hover:text-sky-400 transition-colors">이메일</a>
-                <a href="[linkedin-url]" target="_blank" class="hover:text-sky-400 transition-colors">LinkedIn</a>
-                <a href="[website-url]" target="_blank" class="hover:text-sky-400 transition-colors">개인 웹사이트</a>
+                <a href="mailto:talium.cho@example.com" class="hover:text-sky-400 transition-colors">Email</a>
+                <a href="https://linkedin.com/in/taliumcho" target="_blank" class="hover:text-sky-400 transition-colors">LinkedIn</a>
+                <a href="https://talium0713.github.io" target="_blank" class="hover:text-sky-400 transition-colors">Personal Website</a>
             </div>
         </div>
     </footer>
@@ -235,10 +271,10 @@
                     
                     if (isHidden) {
                         targetElement.classList.remove('hidden');
-                        button.textContent = '간략히 보기';
+                        button.textContent = 'Hide Details';
                     } else {
                         targetElement.classList.add('hidden');
-                        button.textContent = '자세히 보기';
+                        button.textContent = 'View Details';
                     }
                 });
             });
@@ -247,9 +283,9 @@
             const researchChart1 = new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: ['Baseline A', 'Baseline B', '제안한 방법'],
+                    labels: ['Baseline A', 'Baseline B', 'Proposed Method (PPL)'],
                     datasets: [{
-                        label: '성능 점수',
+                        label: 'Performance Score',
                         data: [75, 82, 95],
                         backgroundColor: [
                             'rgba(100, 116, 139, 0.6)',
@@ -272,7 +308,7 @@
                             beginAtZero: true,
                             title: {
                                 display: true,
-                                text: '성능'
+                                text: 'Performance'
                             }
                         }
                     },
@@ -288,7 +324,7 @@
                                         label += ': ';
                                     }
                                     if (context.parsed.y !== null) {
-                                        label += context.parsed.y + '점';
+                                        label += context.parsed.y + ' points';
                                     }
                                     return label;
                                 }
@@ -316,6 +352,70 @@
                         link.classList.add('active');
                     }
                 });
+            });
+
+            // Gemini API Integration
+            const researchInterestInput = document.getElementById('research-interest-input');
+            const generateIdeasButton = document.getElementById('generate-ideas-button');
+            const generatedIdeasOutput = document.getElementById('generated-ideas-output');
+            const generatedIdeasList = generatedIdeasOutput.querySelector('ul');
+            const loadingSpinner = document.getElementById('loading-spinner');
+            const buttonText = document.getElementById('button-text');
+
+            generateIdeasButton.addEventListener('click', async () => {
+                const promptInput = researchInterestInput.value.trim();
+                if (!promptInput) {
+                    generatedIdeasList.innerHTML = '<li class="text-red-500">Please enter your research interest.</li>';
+                    generatedIdeasOutput.classList.remove('hidden');
+                    return;
+                }
+
+                generatedIdeasList.innerHTML = ''; // Clear previous ideas
+                generatedIdeasOutput.classList.remove('hidden');
+                buttonText.classList.add('hidden');
+                loadingSpinner.classList.remove('hidden');
+                generateIdeasButton.disabled = true;
+
+                try {
+                    let chatHistory = [];
+                    const prompt = `You are a senior research scientist at Google DeepMind. Based on my research interest in reinforcement learning: "${promptInput}", propose 3 innovative research ideas that closely align with Google DeepMind's current research directions (e.g., AGI, AI safety, scientific discovery, sample efficiency, generalization, multi-agent systems). Each idea should have a concise title and a one-sentence summary. Respond in English.`;
+                    chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+                    const payload = { contents: chatHistory };
+                    const apiKey = ""; 
+                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    const result = await response.json();
+
+                    if (result.candidates && result.candidates.length > 0 &&
+                        result.candidates[0].content && result.candidates[0].content.parts &&
+                        result.candidates[0].content.parts.length > 0) {
+                        const text = result.candidates[0].content.parts[0].text;
+                        const ideas = text.split('\n').filter(line => line.trim() !== '');
+                        if (ideas.length > 0) {
+                            ideas.forEach(idea => {
+                                const listItem = document.createElement('li');
+                                listItem.textContent = idea;
+                                generatedIdeasList.appendChild(listItem);
+                            });
+                        } else {
+                            generatedIdeasList.innerHTML = '<li>Unable to generate ideas. Please try again.</li>';
+                        }
+                    } else {
+                        generatedIdeasList.innerHTML = '<li>Unexpected response structure.</li>';
+                    }
+                } catch (error) {
+                    console.error('Error calling Gemini API:', error);
+                    generatedIdeasList.innerHTML = '<li>An error occurred while generating ideas.</li>';
+                } finally {
+                    loadingSpinner.classList.add('hidden');
+                    buttonText.classList.remove('hidden');
+                    generateIdeasButton.disabled = false;
+                }
             });
         });
     </script>
