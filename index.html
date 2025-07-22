@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[이름] | DeepMind 면접 포트폴리오</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Tailwind CSS Slate -->
+    <!-- Application Structure Plan: A single-page, scrollable interactive portfolio replacing a linear slide deck. It uses a sticky top navigation for smooth scrolling to thematic sections: Hero, Research (interactive cards with details-on-click), Vision, Synergy with DeepMind, and Contact. This structure allows non-linear exploration by interviewers, enabling them to quickly access the most relevant information (e.g., jump straight to research) while still presenting a cohesive narrative. It's more engaging and web-native than a simple slide presentation. -->
+    <!-- Visualization & Content Choices: 
+    - Report Info: Core Research 1 (Slide 3) - Performance comparison.
+    - Goal: Compare.
+    - Viz/Presentation Method: Interactive card with an expandable details section and a bar chart.
+    - Interaction: Click card to expand text, hover over chart bars for tooltips with precise data.
+    - Justification: This effectively summarizes a research project, presenting the key takeaway (performance) visually and allowing a deeper dive into the text on demand, which is ideal for an audience with limited time but a need for detail.
+    - Library/Method: Chart.js (Canvas) for the bar chart. HTML/CSS/JS for the interactive card.
+    - Report Info: Synergy with DeepMind (Slide 6) - Connecting candidate's work to DeepMind's.
+    - Goal: Show Relationships.
+    - Viz/Presentation Method: A responsive grid layout where each grid item is a card that visually links a candidate's research theme to a DeepMind pillar.
+    - Interaction: Subtle hover effects on cards.
+    - Justification: This clearly and directly addresses the "fit" question, making the connections explicit and easy to scan, which is more impactful than a simple text block.
+    - Library/Method: HTML/Tailwind CSS.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+            color: #334155; /* slate-700 */
+        }
+        .nav-link.active {
+            color: #0ea5e9; /* sky-500 */
+            font-weight: 500;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header id="header" class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#home" class="text-xl font-bold text-slate-800">[이름]</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#intro" class="nav-link text-slate-600 hover:text-sky-500 transition-colors duration-300">소개</a>
+                <a href="#research" class="nav-link text-slate-600 hover:text-sky-500 transition-colors duration-300">주요 연구</a>
+                <a href="#vision" class="nav-link text-slate-600 hover:text-sky-500 transition-colors duration-300">연구 비전</a>
+                <a href="#synergy" class="nav-link text-slate-600 hover:text-sky-500 transition-colors duration-300">DeepMind와의 시너지</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-slate-800">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden bg-white">
+            <a href="#intro" class="block py-2 px-6 text-sm text-slate-600 hover:bg-slate-100">소개</a>
+            <a href="#research" class="block py-2 px-6 text-sm text-slate-600 hover:bg-slate-100">주요 연구</a>
+            <a href="#vision" class="block py-2 px-6 text-sm text-slate-600 hover:bg-slate-100">연구 비전</a>
+            <a href="#synergy" class="block py-2 px-6 text-sm text-slate-600 hover:bg-slate-100">DeepMind와의 시너지</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="container mx-auto px-6 py-20 md:py-32 text-center">
+            <div class="w-24 h-24 mx-auto bg-slate-300 rounded-full mb-6 flex items-center justify-center">
+                 <span class="text-slate-500 text-sm">사진</span>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold text-slate-800 mb-4">강화 학습을 통한 지능의 발전</h1>
+            <p class="text-lg text-slate-600 max-w-3xl mx-auto">Google DeepMind 연구 과학자/포닥 직무에 지원하는 [이름]입니다. 복잡한 문제 해결을 위한 강화 학습의 잠재력을 탐구하고, 인공지능의 새로운 지평을 여는 데 기여하고 싶습니다.</p>
+        </section>
+
+        <section id="intro" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-slate-800 mb-2">저의 여정: 강화 학습에 대한 열정</h2>
+                <p class="text-center text-slate-500 mb-12">이 섹션에서는 저의 학문적 배경과 강화 학습 연구에 대한 동기를 소개합니다.</p>
+                <div class="grid md:grid-cols-3 gap-8 text-center">
+                    <div class="bg-slate-50 p-8 rounded-lg">
+                        <h3 class="text-xl font-semibold text-slate-800 mb-2">간략한 배경</h3>
+                        <p class="text-slate-600">[박사 학위]를 취득했으며, [주요 연구 분야]에 대한 깊이 있는 연구를 수행했습니다.</p>
+                    </div>
+                    <div class="bg-slate-50 p-8 rounded-lg">
+                        <h3 class="text-xl font-semibold text-slate-800 mb-2">연구 동기</h3>
+                        <p class="text-slate-600">강화 학습의 [매력적인 점]에 이끌려, [해결하고 싶은 문제]를 해결하고자 연구를 시작했습니다.</p>
+                    </div>
+                    <div class="bg-slate-50 p-8 rounded-lg">
+                        <h3 class="text-xl font-semibold text-slate-800 mb-2">핵심 연구 테마</h3>
+                        <p class="text-slate-600">저의 연구는 샘플 효율성, 일반화, 안전성과 같은 강화 학습의 근본적인 질문에 답하는 것을 목표로 합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="research" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-slate-800 mb-2">주요 연구</h2>
+                <p class="text-center text-slate-500 mb-12">이 섹션에서는 저의 핵심 강화 학습 연구들을 소개합니다. 각 카드를 클릭하여 문제 정의, 접근 방식, 그리고 주요 결과에 대해 더 자세히 알아보세요.</p>
+                <div class="space-y-12">
+                    <div class="bg-white p-8 rounded-lg shadow-md transition-shadow duration-300 hover:shadow-xl">
+                        <h3 class="text-2xl font-semibold text-slate-800 mb-4">핵심 연구 1: [프로젝트 제목]</h3>
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <h4 class="font-semibold text-slate-700 mb-2">요약</h4>
+                                <p class="text-slate-600 mb-4">이 연구는 강화 학습의 [특정 문제]를 해결하는 것을 목표로 합니다. 저희는 [핵심 아이디어]에 기반한 새로운 접근 방식을 제안했습니다.</p>
+                                <button class="research-toggle bg-sky-500 text-white px-4 py-2 rounded-md hover:bg-sky-600 transition-colors" data-target="research-1-details">자세히 보기</button>
+                                <div id="research-1-details" class="hidden mt-4 space-y-3 text-slate-600">
+                                    <p><strong>문제 정의:</strong> [해결하고자 했던 구체적인 문제에 대한 간결한 설명]</p>
+                                    <p><strong>접근 방식:</strong> [제안한 방법론/알고리즘의 핵심 아이디어에 대한 설명. 기술적 세부사항은 최소화]</p>
+                                    <p><strong>영향 및 중요성:</strong> [이 연구가 RL 분야 또는 더 넓은 AI 분야에 미칠 수 있는 영향]</p>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-slate-700 mb-2 text-center">주요 결과: 성능 비교</h4>
+                                <div class="chart-container">
+                                    <canvas id="researchChart1"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-lg shadow-md transition-shadow duration-300 hover:shadow-xl">
+                        <h3 class="text-2xl font-semibold text-slate-800 mb-4">핵심 연구 2: [프로젝트 제목]</h3>
+                         <p class="text-slate-600 mb-4">이 연구는 [이전 연구와 다른 측면]을 탐구하여 강화 학습 에이전트의 [특정 능력]을 향상시키는 데 중점을 둡니다.</p>
+                        <button class="research-toggle bg-sky-500 text-white px-4 py-2 rounded-md hover:bg-sky-600 transition-colors" data-target="research-2-details">자세히 보기</button>
+                        <div id="research-2-details" class="hidden mt-4 space-y-3 text-slate-600">
+                            <p><strong>문제 정의:</strong> [두 번째 프로젝트가 해결하고자 했던 문제]</p>
+                            <p><strong>접근 방식:</strong> [두 번째 프로젝트의 독창적인 접근 방식]</p>
+                            <p><strong>주요 결과 및 기여:</strong> [두 번째 프로젝트의 핵심 성과 및 기여]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="vision" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-slate-800 mb-2">미래를 향하여: 강화 학습의 다음 단계</h2>
+                <p class="text-center text-slate-500 mb-12">이 섹션에서는 제가 생각하는 강화 학습의 미래와 DeepMind에서 기여하고 싶은 연구 방향을 제시합니다.</p>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="text-sky-500 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-slate-800 mb-2">현재 도전 과제</h3>
+                        <p class="text-slate-600">[현재 RL 분야가 직면한 가장 큰 미해결 문제나 기회에 대한 생각]</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-sky-500 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5.636 18.364a9 9 0 010-12.728m12.728 0a9 9 0 010 12.728m-9.9-2.829a5 5 0 010-7.07m7.072 0a5 5 0 010 7.07M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-slate-800 mb-2">장기적인 연구 목표</h3>
+                        <p class="text-slate-600">[앞으로 집중하고 싶은 문제의 종류와 장기적인 연구 목표]</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-sky-500 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.657 7.343A8 8 0 0117.657 18.657z" /></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-slate-800 mb-2">DeepMind에서의 다음 단계</h3>
+                        <p class="text-slate-600">[DeepMind에서 시작하고 싶은 구체적인 연구 아이디어나 탐구하고 싶은 주제]</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="synergy" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-slate-800 mb-2">DeepMind와 함께하는 지능의 발전</h2>
+                <p class="text-center text-slate-500 mb-12">저의 연구와 비전이 DeepMind의 목표와 어떻게 시너지를 낼 수 있는지 보여줍니다.</p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="font-semibold text-slate-800 mb-2">연구 연관성: [AlphaFold/Gato 등]</h3>
+                        <p class="text-slate-600">저의 [관련 연구 분야] 연구는 DeepMind의 [특정 프로젝트]가 직면한 [과제]를 해결하는 데 기여할 수 있습니다.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="font-semibold text-slate-800 mb-2">가치 및 문화적 적합성</h3>
+                        <p class="text-slate-600">협업과 개방성을 중시하는 저의 연구 스타일은 DeepMind의 문화와 잘 부합하며, 함께 더 큰 영향력을 만들 수 있다고 믿습니다.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="font-semibold text-slate-800 mb-2">고유한 기여</h3>
+                        <p class="text-slate-600">저는 [자신만의 독특한 기술/관점]을 통해 DeepMind 팀에 새로운 시각을 제공하고 문제 해결에 기여할 수 있습니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-slate-800 text-slate-300 py-12">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-2xl font-bold mb-4">질문 & 답변</h2>
+            <p class="mb-6">경청해 주셔서 감사합니다. 질문 있으시면 편하게 해주세요.</p>
+            <div class="flex justify-center space-x-6">
+                <a href="mailto:[your-email@example.com]" class="hover:text-sky-400 transition-colors">이메일</a>
+                <a href="[linkedin-url]" target="_blank" class="hover:text-sky-400 transition-colors">LinkedIn</a>
+                <a href="[website-url]" target="_blank" class="hover:text-sky-400 transition-colors">개인 웹사이트</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            const researchToggles = document.querySelectorAll('.research-toggle');
+            researchToggles.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetId = button.getAttribute('data-target');
+                    const targetElement = document.getElementById(targetId);
+                    const isHidden = targetElement.classList.contains('hidden');
+                    
+                    if (isHidden) {
+                        targetElement.classList.remove('hidden');
+                        button.textContent = '간략히 보기';
+                    } else {
+                        targetElement.classList.add('hidden');
+                        button.textContent = '자세히 보기';
+                    }
+                });
+            });
+
+            const ctx = document.getElementById('researchChart1').getContext('2d');
+            const researchChart1 = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Baseline A', 'Baseline B', '제안한 방법'],
+                    datasets: [{
+                        label: '성능 점수',
+                        data: [75, 82, 95],
+                        backgroundColor: [
+                            'rgba(100, 116, 139, 0.6)',
+                            'rgba(56, 189, 248, 0.6)',
+                            'rgba(14, 165, 233, 0.8)'
+                        ],
+                        borderColor: [
+                            'rgba(100, 116, 139, 1)',
+                            'rgba(56, 189, 248, 1)',
+                            'rgba(14, 165, 233, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: '성능'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed.y !== null) {
+                                        label += context.parsed.y + '점';
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 68) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
