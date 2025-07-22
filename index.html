@@ -9,9 +9,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <!-- Chosen Palette: Tailwind CSS Slate -->
-    <!-- Application Structure Plan: A single-page, scrollable interactive portfolio replacing a linear slide deck. It uses a sticky top navigation for smooth scrolling to thematic sections: Hero, Introduction, Research (interactive cards with details-on-click for three key papers), Vision, and Synergy with Leading AI Research. This structure allows non-linear exploration by interviewers, enabling them to quickly access the most relevant information (e.g., jump straight to research) while still presenting a cohesive narrative. It's more engaging and web-native than a simple slide presentation. -->
+    <!-- Chosen Palette: Tailwind CSS Slate with Sky Blue accents -->
+    <!-- Application Structure Plan: A single-page, scrollable interactive portfolio replacing a linear slide deck. It uses a sticky top navigation for smooth scrolling to thematic sections: Hero, Introduction (now with interactive hover-to-reveal cards), Research (interactive cards with details-on-click for three key papers), Vision, and Synergy with Leading AI Research. This structure allows non-linear exploration by interviewers, enabling them to quickly access the most relevant information (e.g., jump straight to research) while still presenting a cohesive narrative. It's more engaging and web-native than a simple slide presentation. -->
     <!-- Visualization & Content Choices: 
+    - Report Info: Introduction Section - Background, Motivation, Themes.
+    - Goal: Inform & Engage.
+    - Viz/Presentation Method: Cards with initial emoji/title, revealing detailed text on hover.
+    - Interaction: Mouse hover (desktop) or tap (touch) to reveal content.
+    - Justification: Makes the initial view cleaner and more visually appealing, encouraging interaction to delve into details, aligning with the user's request for a less text-heavy initial display and a softer design aesthetic. Emojis are copyright-free and fit the less angular feel.
+    - Library/Method: HTML/Tailwind CSS for `group-hover` effects.
     - Report Info: Core Research 1 (PPL) - Performance comparison.
     - Goal: Compare.
     - Viz/Presentation Method: Interactive card with an expandable details section and a bar chart.
@@ -29,8 +35,8 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8fafc; /* slate-50 */
-            color: #334155; /* slate-700 */
+            background-color: #f0f4f8; /* A slightly darker slate-50 equivalent for a less faint feel */
+            color: #1e293b; /* slate-800 for stronger text */
         }
         .nav-link.active {
             color: #0ea5e9; /* sky-500 */
@@ -56,12 +62,12 @@
 
     <header id="header" class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
         <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <a href="#home" class="text-xl font-bold text-slate-800">Taehyun Cho</a>
+            <a href="#home" class="text-xl font-bold text-slate-900">Taehyun Cho</a>
             <div class="hidden md:flex space-x-8">
-                <a href="#intro" class="nav-link text-slate-600 hover:text-sky-500 transition-colors duration-300">Introduction</a>
-                <a href="#research" class="nav-link text-slate-600 hover:text-sky-500 transition-colors duration-300">Key Research</a>
-                <a href="#vision" class="nav-link text-slate-600 hover:text-sky-500 transition-colors duration-300">Research Vision</a>
-                <a href="#synergy" class="nav-link text-slate-600 hover:text-sky-500 transition-colors duration-300">Synergy with Leading AI Research</a>
+                <a href="#intro" class="nav-link text-slate-700 hover:text-sky-600 transition-colors duration-300">Introduction</a>
+                <a href="#research" class="nav-link text-slate-700 hover:text-sky-600 transition-colors duration-300">Key Research</a>
+                <a href="#vision" class="nav-link text-slate-700 hover:text-sky-600 transition-colors duration-300">Research Vision</a>
+                <a href="#synergy" class="nav-link text-slate-700 hover:text-sky-600 transition-colors duration-300">Synergy with Leading AI Research</a>
             </div>
             <button id="mobile-menu-button" class="md:hidden text-slate-800">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -70,38 +76,62 @@
             </button>
         </nav>
         <div id="mobile-menu" class="hidden md:hidden bg-white">
-            <a href="#intro" class="block py-2 px-6 text-sm text-slate-600 hover:bg-slate-100">Introduction</a>
-            <a href="#research" class="block py-2 px-6 text-sm text-slate-600 hover:bg-slate-100">Key Research</a>
-            <a href="#vision" class="block py-2 px-6 text-sm text-slate-600 hover:bg-slate-100">Research Vision</a>
-            <a href="#synergy" class="block py-2 px-6 text-sm text-slate-600 hover:bg-slate-100">Synergy with Leading AI Research</a>
+            <a href="#intro" class="block py-2 px-6 text-sm text-slate-700 hover:bg-slate-100">Introduction</a>
+            <a href="#research" class="block py-2 px-6 text-sm text-slate-700 hover:bg-slate-100">Key Research</a>
+            <a href="#vision" class="block py-2 px-6 text-sm text-slate-700 hover:bg-slate-100">Research Vision</a>
+            <a href="#synergy" class="block py-2 px-6 text-sm text-slate-700 hover:bg-slate-100">Synergy with Leading AI Research</a>
         </div>
     </header>
 
     <main>
         <section id="home" class="container mx-auto px-6 py-20 md:py-32 text-center">
-            <div class="w-24 h-24 mx-auto bg-slate-300 rounded-full mb-6 overflow-hidden">
-                 <img src="img/img_cth.jpg" alt="Taehyun Cho Profile Photo" class="w-full h-full object-cover">
+            <div class="w-28 h-28 mx-auto bg-slate-200 rounded-full mb-6 overflow-hidden shadow-lg">
+                 <img src="img/img_cth.jpg" alt="Taehyun Cho's professional profile photo" class="w-full h-full object-cover">
             </div>
-            <h1 class="text-4xl md:text-5xl font-bold text-slate-800 mb-4">Advancing Intelligence Through Reinforcement Learning</h1>
-            <p class="text-lg text-slate-600 max-w-3xl mx-auto">I am Taehyun Cho, a researcher passionate about exploring the potential of reinforcement learning to solve complex problems and contribute to opening new frontiers in artificial intelligence. This portfolio highlights my work and vision, suitable for leading AI research labs.</p>
+            <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">Advancing Intelligence Through Reinforcement Learning</h1>
+            <p class="text-lg text-slate-700 max-w-3xl mx-auto">I am Taehyun Cho, a researcher passionate about exploring the potential of reinforcement learning to solve complex problems and contribute to opening new frontiers in artificial intelligence. This portfolio highlights my work and vision, suitable for leading AI research labs.</p>
         </section>
 
-        <section id="intro" class="py-20 bg-white">
+        <section id="intro" class="py-20 bg-white/90 backdrop-blur-sm shadow-inner">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center text-slate-800 mb-2">My Journey: Passion for Reinforcement Learning</h2>
-                <p class="text-center text-slate-500 mb-12">This section introduces my academic background and motivation for research in reinforcement learning.</p>
+                <h2 class="text-3xl font-bold text-center text-slate-900 mb-2">My Journey: Passion for Reinforcement Learning</h2>
+                <p class="text-center text-slate-700 mb-12">This section introduces my academic background and motivation for research in reinforcement learning. Hover over each card to reveal details.</p>
                 <div class="grid md:grid-cols-3 gap-8 text-center">
-                    <div class="bg-slate-50 p-8 rounded-lg">
-                        <h3 class="text-xl font-semibold text-slate-800 mb-2">Brief Background</h3>
-                        <p class="text-slate-600">I am a Ph.D. candidate in Electrical Engineering and Computer Science at Seoul National University, with extensive research conducted in Reinforcement Learning and Machine Learning.</p>
+                    <div class="bg-slate-100 p-8 rounded-2xl group relative overflow-hidden h-80 flex flex-col justify-center items-center shadow-lg transition-all duration-300 hover:shadow-xl">
+                        <!-- Visual State (Default) -->
+                        <div class="absolute inset-0 flex flex-col justify-center items-center transition-opacity duration-500 group-hover:opacity-0 p-4">
+                            <span class="text-5xl mb-4">📚</span>
+                            <h3 class="text-xl font-semibold text-slate-900">Brief Background</h3>
+                        </div>
+                        <!-- Text State (On Hover) -->
+                        <div class="absolute inset-0 flex flex-col justify-center items-center p-8 bg-slate-100 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                            <h3 class="text-xl font-semibold text-slate-900 mb-2">Brief Background</h3>
+                            <p class="text-slate-700 text-center">I am a Ph.D. candidate in Electrical Engineering and Computer Science at Seoul National University, with extensive research conducted in Reinforcement Learning and Machine Learning.</p>
+                        </div>
                     </div>
-                    <div class="bg-slate-50 p-8 rounded-lg">
-                        <h3 class="text-xl font-semibold text-slate-800 mb-2">Research Motivation</h3>
-                        <p class="text-slate-600">Drawn by the ability of RL to solve complex sequential decision-making problems, I embarked on research to address fundamental challenges in AI, particularly in sequential decision-making under uncertainty and human feedback.</p>
+                    <div class="bg-slate-100 p-8 rounded-2xl group relative overflow-hidden h-80 flex flex-col justify-center items-center shadow-lg transition-all duration-300 hover:shadow-xl">
+                        <!-- Visual State (Default) -->
+                        <div class="absolute inset-0 flex flex-col justify-center items-center transition-opacity duration-500 group-hover:opacity-0 p-4">
+                            <span class="text-5xl mb-4">💡</span>
+                            <h3 class="text-xl font-semibold text-slate-900">Research Motivation</h3>
+                        </div>
+                        <!-- Text State (On Hover) -->
+                        <div class="absolute inset-0 flex flex-col justify-center items-center p-8 bg-slate-100 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                            <h3 class="text-xl font-semibold text-slate-900 mb-2">Research Motivation</h3>
+                            <p class="text-slate-700 text-center">Drawn by the ability of RL to solve complex sequential decision-making problems, I embarked on research to address fundamental challenges in AI, particularly in sequential decision-making under uncertainty and human feedback.</p>
+                        </div>
                     </div>
-                    <div class="bg-slate-50 p-8 rounded-lg">
-                        <h3 class="text-xl font-semibold text-slate-800 mb-2">Core Research Themes</h3>
-                        <p class="text-slate-600">My research aims to answer fundamental questions in RL such as sample efficiency, generalization, safety, and aligning AI with human intentions, with a focus on Distributional Reinforcement Learning, Regret Analysis, and Reinforcement Learning from Human Feedback.</p>
+                    <div class="bg-slate-100 p-8 rounded-2xl group relative overflow-hidden h-80 flex flex-col justify-center items-center shadow-lg transition-all duration-300 hover:shadow-xl">
+                        <!-- Visual State (Default) -->
+                        <div class="absolute inset-0 flex flex-col justify-center items-center transition-opacity duration-500 group-hover:opacity-0 p-4">
+                            <span class="text-5xl mb-4">🎯</span>
+                            <h3 class="text-xl font-semibold text-slate-900">Core Research Themes</h3>
+                        </div>
+                        <!-- Text State (On Hover) -->
+                        <div class="absolute inset-0 flex flex-col justify-center items-center p-8 bg-slate-100 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                            <h3 class="text-xl font-semibold text-slate-900 mb-2">Core Research Themes</h3>
+                            <p class="text-slate-700 text-center">My research aims to answer fundamental questions in RL such as sample efficiency, generalization, safety, and aligning AI with human intentions, with a focus on Distributional Reinforcement Learning, Regret Analysis, and Reinforcement Learning from Human Feedback.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -109,24 +139,27 @@
 
         <section id="research" class="py-20">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center text-slate-800 mb-2">Key Research</h2>
-                <p class="text-center text-slate-500 mb-12">This section highlights my core reinforcement learning research projects. Click on each card to learn more about the problem definition, approach, and key results.</p>
+                <h2 class="text-3xl font-bold text-center text-slate-900 mb-2">Key Research</h2>
+                <p class="text-center text-slate-700 mb-12">This section highlights my core reinforcement learning research projects. Click on each card to learn more about the problem definition, approach, and key results.</p>
                 <div class="space-y-12">
-                    <div class="bg-white p-8 rounded-lg shadow-md transition-shadow duration-300 hover:shadow-xl">
-                        <h3 class="text-2xl font-semibold text-slate-800 mb-4">Core Research 1: Policy-labeled Preference Learning (PPL) for RLHF</h3>
+                    <div class="bg-white p-8 rounded-2xl shadow-lg transition-shadow duration-300 hover:shadow-xl">
+                        <h3 class="text-2xl font-semibold text-slate-900 mb-4"> Policy-labeled Preference Learning, Is Preference Enough for RLHF?</h3>
+                        <p class="text-sm text-slate-600 mb-4">
+                            ICML 2025 <span class="text-red-600">Spotlight(Top 2.6%)</span> | Authors: <span class="font-bold">Taehyun Cho*</span>, Seokhun Ju*, Seungyub Han, Dohyeong Kim, Kyungjae Lee, Jungwoo Lee
+                        </p>
                         <div class="grid md:grid-cols-2 gap-8">
                             <div>
-                                <h4 class="font-semibold text-slate-700 mb-2">Summary</h4>
-                                <p class="text-slate-600 mb-4">This research addresses the challenge of inaccurate likelihood estimation in Reinforcement Learning from Human Feedback (RLHF) methods, particularly when trajectories are misinterpreted as optimal. We propose Policy-labeled Preference Learning (PPL), a novel framework that models human preferences with regret, explicitly incorporating behavior policy information to resolve likelihood mismatch issues. We also introduce a contrastive KL regularization to enhance sequential decision-making.</p>
-                                <button class="research-toggle bg-sky-500 text-white px-4 py-2 rounded-md hover:bg-sky-600 transition-colors" data-target="research-1-details">View Details</button>
-                                <div id="research-1-details" class="hidden mt-4 space-y-3 text-slate-600">
+                                <h4 class="font-semibold text-slate-800 mb-2">Summary</h4>
+                                <p class="text-slate-700 mb-4">This research addresses the challenge of inaccurate likelihood estimation in Reinforcement Learning from Human Feedback (RLHF) methods, particularly when trajectories are misinterpreted as optimal. We propose Policy-labeled Preference Learning (PPL), a novel framework that models human preferences with regret, explicitly incorporating behavior policy information to resolve likelihood mismatch issues. We also introduce a contrastive KL regularization to enhance sequential decision-making.</p>
+                                <button class="research-toggle bg-sky-600 text-white px-5 py-2 rounded-xl hover:bg-sky-700 transition-colors duration-300">View Details</button>
+                                <div id="research-1-details" class="hidden mt-4 space-y-3 text-slate-700">
                                     <p><strong>Problem Definition:</strong> Existing RLHF methods often misinterpret trajectories as being generated by an optimal policy, leading to inaccurate likelihood estimation and suboptimal learning, especially in stochastic environments and offline settings where data comes from diverse policies without explicit behavior policy information.</p>
                                     <p><strong>Approach:</strong> Inspired by Direct Preference Optimization (DPO), PPL leverages regret-based preference modeling and explicitly labels the behavior policy. This disentangles the effects of environmental stochasticity from policy suboptimality. We also introduce a contrastive KL regularization, derived from regret-based principles, to align policies with preferred trajectories while contrasting against less preferred ones.</p>
                                     <p><strong>Impact & Significance:</strong> PPL significantly improves offline RLHF performance and demonstrates effectiveness in online settings, particularly in high-dimensional continuous control tasks. It offers a more robust and accurate way to learn from human preferences, crucial for applications like LLMs and robotic manipulation.</p>
                                 </div>
                             </div>
                             <div>
-                                <h4 class="font-semibold text-slate-700 mb-2 text-center">Key Results: Performance Comparison</h4>
+                                <h4 class="font-semibold text-slate-800 mb-2 text-center">Key Results: Performance Comparison</h4>
                                 <div class="chart-container">
                                     <canvas id="researchChart1"></canvas>
                                 </div>
@@ -134,22 +167,28 @@
                         </div>
                     </div>
 
-                    <div class="bg-white p-8 rounded-lg shadow-md transition-shadow duration-300 hover:shadow-xl">
-                        <h3 class="text-2xl font-semibold text-slate-800 mb-4">Core Research 2: Bellman Unbiasedness: Provably Efficient Distributional RL</h3>
-                         <p class="text-slate-600 mb-4">This work provides a comprehensive theoretical understanding of Distributional Reinforcement Learning (DistRL) with general value function approximation, addressing the overlooked challenge of infinite-dimensionality of distributions. We introduce 'Bellman unbiasedness' and propose SF-LSVI, a provably efficient algorithm that achieves a tight regret bound, demonstrating that only moment functionals can exactly capture statistical information for efficient online distributional updates.</p>
-                        <button class="research-toggle bg-sky-500 text-white px-4 py-2 rounded-md hover:bg-sky-600 transition-colors" data-target="research-2-details">View Details</button>
-                        <div id="research-2-details" class="hidden mt-4 space-y-3 text-slate-600">
+                    <div class="bg-white p-8 rounded-2xl shadow-lg transition-shadow duration-300 hover:shadow-xl">
+                        <h3 class="text-2xl font-semibold text-slate-900 mb-4"> Bellman Unbiasedness: Toward Provably Efficient Distributional Reinforcement Learning with Genenral Value Function Approximation</h3>
+                        <p class="text-sm text-slate-600 mb-4">
+                            ICML 2025 | Authors: <span class="font-bold">Taehyun Cho</span>, Seungyub Han, Seokhun Ju, Dohyeong Kim, Kyungjae Lee, Jungwoo Lee
+                        </p>
+                         <p class="text-slate-700 mb-4">This work provides a comprehensive theoretical understanding of Distributional Reinforcement Learning (DistRL) with general value function approximation, addressing the overlooked challenge of infinite-dimensionality of distributions. We introduce 'Bellman unbiasedness' and propose SF-LSVI, a provably efficient algorithm that achieves a tight regret bound, demonstrating that only moment functionals can exactly capture statistical information for efficient online distributional updates.</p>
+                        <button class="research-toggle bg-sky-600 text-white px-5 py-2 rounded-xl hover:bg-sky-700 transition-colors duration-300" data-target="research-2-details">View Details</button>
+                        <div id="research-2-details" class="hidden mt-4 space-y-3 text-slate-700">
                             <p><strong>Problem Definition:</strong> Despite DistRL's benefits in capturing environmental stochasticity, a comprehensive theoretical understanding, especially regarding the infinite dimensionality of distributions and provably efficient online updates, remains elusive. Not all statistical functionals can be exactly learned through the Bellman operator.</p>
                             <p><strong>Approach:</strong> We introduce Bellman unbiasedness as a key notion for exactly learnable and provably efficient distributional updates. Our theoretical results show that only moment functionals can precisely capture statistical information. We propose SF-LSVI, an algorithm that efficiently explores from a regret minimization perspective while simultaneously performing distributional Bellman updates in an online manner.</p>
                             <p><strong>Impact & Significance:</strong> SF-LSVI achieves a tight regret bound of $\tilde{O}(d_{E}H^{\frac{3}{2}}\sqrt{K})$, providing strong theoretical guarantees for efficient learning in DistRL. This work advances the theoretical foundations of DistRL, enabling safer and more effective decision-making in complex real-world situations by accounting for various risks.</p>
                         </div>
                     </div>
 
-                    <div class="bg-white p-8 rounded-lg shadow-md transition-shadow duration-300 hover:shadow-xl">
-                        <h3 class="text-2xl font-semibold text-slate-800 mb-4">Core Research 3: Pitfall of Optimism: Distributional RL by Randomizing Risk Criterion (PQR)</h3>
-                         <p class="text-slate-600 mb-4">This paper addresses the issue of biased exploration in Distributional Reinforcement Learning (DistRL) caused by a one-sided tendency on risk when utilizing estimated uncertainty for optimistic exploration. We propose a novel algorithm, PQR (Perturbed Distributional Bellman Optimality Operator), that selects actions by randomizing risk criterion to avoid such biases, proving its convergence and optimality.</p>
-                        <button class="research-toggle bg-sky-500 text-white px-4 py-2 rounded-md hover:bg-sky-600 transition-colors" data-target="research-3-details">View Details</button>
-                        <div id="research-3-details" class="hidden mt-4 space-y-3 text-slate-600">
+                    <div class="bg-white p-8 rounded-2xl shadow-lg transition-shadow duration-300 hover:shadow-xl">
+                        <h3 class="text-2xl font-semibold text-slate-900 mb-4">Core Research 3: Pitfall of Optimism: Distributional RL by Randomizing Risk Criterion (PQR)</h3>
+                        <p class="text-sm text-slate-600 mb-4">
+                            NeurIPS 2023 | Authors: <span class="font-bold">Taehyun Cho</span>, Seungyub Han, Heesoo Lee, Dohyeong Kim, Kyungjae Lee, Jungwoo Lee
+                        </p>
+                         <p class="text-slate-700 mb-4">This paper addresses the issue of biased exploration in Distributional Reinforcement Learning (DistRL) caused by a one-sided tendency on risk when utilizing estimated uncertainty for optimistic exploration. We propose a novel algorithm, PQR (Perturbed Distributional Bellman Optimality Operator), that selects actions by randomizing risk criterion to avoid such biases, proving its convergence and optimality.</p>
+                        <button class="research-toggle bg-sky-600 text-white px-5 py-2 rounded-xl hover:bg-sky-700 transition-colors duration-300" data-target="research-3-details">View Details</button>
+                        <div id="research-3-details" class="hidden mt-4 space-y-3 text-slate-700">
                             <p><strong>Problem Definition:</strong> Optimistic exploration in DistRL, often relying on estimated variance, can lead to biased data collection and hinder convergence or performance. This 'one-sided tendency on risk' arises because using a fixed risk criterion for action selection might inadvertently promote risk-seeking behavior.</p>
                             <p><strong>Approach:</strong> We introduce the Perturbed Distributional Bellman Optimality Operator (PDBOO) to address biased exploration. PQR randomizes the risk criterion for action selection, which promotes unbiased selection with regards to high intrinsic uncertainty. This approach ensures the method does not fall into biased exploration and is guaranteed to converge to an optimal return.</p>
                             <p><strong>Impact & Significance:</strong> PQR empirically outperforms other existing distribution-based algorithms across various environments, including Atari 55 games, demonstrating its effectiveness in avoiding biased exploration and achieving optimal returns. This contributes to more robust and reliable exploration strategies in deep reinforcement learning.</p>
@@ -159,31 +198,25 @@
             </div>
         </section>
 
-        <section id="vision" class="py-20 bg-white">
+        <section id="vision" class="py-20 bg-white/90 backdrop-blur-sm shadow-inner">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center text-slate-800 mb-2">Towards the Future: Next Steps in Reinforcement Learning</h2>
-                <p class="text-center text-slate-500 mb-12">This section presents my vision for the future of reinforcement learning and the research directions I aspire to contribute to at a leading AI research lab.</p>
+                <h2 class="text-3xl font-bold text-center text-slate-900 mb-2">Towards the Future: Next Steps in Reinforcement Learning</h2>
+                <p class="text-center text-slate-700 mb-12">This section presents my vision for the future of reinforcement learning and the research directions I aspire to contribute to at a leading AI research lab.</p>
                 <div class="grid md:grid-cols-3 gap-8 mb-12">
                     <div class="text-center">
-                        <div class="text-sky-500 mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
-                        </div>
-                        <h3 class="text-xl font-semibold text-slate-800 mb-2">Current Challenges</h3>
-                        <p class="text-slate-600">The primary challenges in RL include improving sample efficiency, achieving robust generalization across diverse environments, ensuring safety and interpretability of learned policies, and scaling to real-world complexities.</p>
+                        <span class="text-5xl text-sky-600 mb-4 block">🚧</span>
+                        <h3 class="text-xl font-semibold text-slate-900 mb-2">Current Challenges</h3>
+                        <p class="text-slate-700">The primary challenges in RL include improving sample efficiency, achieving robust generalization across diverse environments, ensuring safety and interpretability of learned policies, and scaling to real-world complexities.</p>
                     </div>
                     <div class="text-center">
-                        <div class="text-sky-500 mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5.636 18.364a9 9 0 010-12.728m12.728 0a9 9 0 010 12.728m-9.9-2.829a5 5 0 010-7.07m7.072 0a5 5 0 010 7.07M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                        </div>
-                        <h3 class="text-xl font-semibold text-slate-800 mb-2">Long-term Research Goals</h3>
-                        <p class="text-slate-600">My long-term goal is to develop foundational RL algorithms that enable agents to learn efficiently from limited data, generalize to novel tasks and environments, and operate safely and reliably in human-centric applications. I aim to focus on areas like multi-agent systems, lifelong learning, and integrating symbolic reasoning with deep RL.</p>
+                        <span class="text-5xl text-sky-600 mb-4 block">🔭</span>
+                        <h3 class="text-xl font-semibold text-slate-900 mb-2">Long-term Research Goals</h3>
+                        <p class="text-slate-700">My long-term goal is to develop foundational RL algorithms that enable agents to learn efficiently from limited data, generalize to novel tasks and environments, and operate safely and reliably in human-centric applications. I aim to focus on areas like multi-agent systems, lifelong learning, and integrating symbolic reasoning with deep RL.</p>
                     </div>
                     <div class="text-center">
-                        <div class="text-sky-500 mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.657 7.343A8 8 0 0117.657 18.657z" /></svg>
-                        </div>
-                        <h3 class="text-xl font-semibold text-slate-800 mb-2">Next Steps at a Leading AI Lab</h3>
-                        <p class="text-slate-600">At a leading AI research lab, I'm eager to explore how regret-based preference learning can be extended to multi-modal RLHF for complex robotic tasks, or investigate the theoretical underpinnings of provably efficient distributional RL in real-world, high-dimensional settings. I'm also keen to contribute to research on AI safety and alignment, ensuring that powerful RL agents act in beneficial ways.</p>
+                        <span class="text-5xl text-sky-600 mb-4 block">🚀</span>
+                        <h3 class="text-xl font-semibold text-slate-900 mb-2">Next Steps at a Leading AI Lab</h3>
+                        <p class="text-slate-700">At a leading AI research lab, I'm eager to explore how regret-based preference learning can be extended to multi-modal RLHF for complex robotic tasks, or investigate the theoretical underpinnings of provably efficient distributional RL in real-world, high-dimensional settings. I'm also keen to contribute to research on AI safety and alignment, ensuring that powerful RL agents act in beneficial ways.</p>
                     </div>
                 </div>
             </div>
@@ -191,20 +224,20 @@
 
         <section id="synergy" class="py-20">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center text-slate-800 mb-2">Advancing Intelligence Together with Leading AI Research</h2>
-                <p class="text-center text-slate-500 mb-12">My research and vision align with the goals of leading AI research organizations, creating a strong synergy for future advancements.</p>
+                <h2 class="text-3xl font-bold text-center text-slate-900 mb-2">Advancing Intelligence Together with Leading AI Research</h2>
+                <p class="text-center text-slate-700 mb-12">My research and vision align with the goals of leading AI research organizations, creating a strong synergy for future advancements.</p>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        <h3 class="font-semibold text-slate-800 mb-2">Research Alignment: Core AI Pillars</h3>
-                        <p class="text-slate-600">My research in preference learning and provably efficient distributional RL can contribute to a leading AI research lab's work on RLHF for large language models, robotics control, or scientific discovery platforms, addressing challenges of aligning complex AI systems with human intentions, ensuring robust and safe exploration, and handling uncertainty in real-world applications.</p>
+                    <div class="bg-white p-6 rounded-2xl shadow-lg">
+                        <h3 class="font-semibold text-slate-900 mb-2">Research Alignment: Core AI Pillars</h3>
+                        <p class="text-slate-700">My research in preference learning and provably efficient distributional RL can contribute to a leading AI research lab's work on RLHF for large language models, robotics control, or scientific discovery platforms, addressing challenges of aligning complex AI systems with human intentions, ensuring robust and safe exploration, and handling uncertainty in real-world applications.</p>
                     </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        <h3 class="font-semibold text-slate-800 mb-2">Values and Cultural Fit</h3>
-                        <p class="text-slate-600">My collaborative and open research style aligns well with the culture of top research institutions, and I believe we can create a greater impact together.</p>
+                    <div class="bg-white p-6 rounded-2xl shadow-lg">
+                        <h3 class="font-semibold text-slate-900 mb-2">Values and Cultural Fit</h3>
+                        <p class="text-slate-700">My collaborative and open research style aligns well with the culture of top research institutions, and I believe we can create a greater impact together.</p>
                     </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        <h3 class="font-semibold text-slate-800 mb-2">Unique Contribution</h3>
-                        <p class="text-slate-600">I can offer a fresh perspective and contribute to problem-solving within an AI research team through my unique blend of theoretical rigor in regret analysis, practical experience in high-dimensional continuous control, and a strong understanding of distributional RL's nuances.</p>
+                    <div class="bg-white p-6 rounded-2xl shadow-lg">
+                        <h3 class="font-semibold text-slate-900 mb-2">Unique Contribution</h3>
+                        <p class="text-slate-700">I can offer a fresh perspective and contribute to problem-solving within an AI research team through my unique blend of theoretical rigor in regret analysis, practical experience in high-dimensional continuous control, and a strong understanding of distributional RL's nuances.</p>
                     </div>
                 </div>
             </div>
@@ -213,11 +246,10 @@
 
     <footer class="bg-slate-800 text-slate-300 py-12">
         <div class="container mx-auto px-6 text-center">
-            <h2 class="text-2xl font-bold mb-4">Questions & Answers</h2>
-            <p class="mb-6">Thank you for your attention. Please feel free to ask any questions.</p>
+            <h2 class="text-2xl font-bold mb-4">Contact</h2>
             <div class="flex justify-center space-x-6">
                 <a href="mailto:talium@cml.snu.ac.kr" class="hover:text-sky-400 transition-colors">Email</a>
-                <a href="https://linkedin.com/in/taehyuncho" target="_blank" class="hover:text-sky-400 transition-colors">LinkedIn</a>
+                <a href="https://linkedin.com/in/talium0713" target="_blank" class="hover:text-sky-400 transition-colors">LinkedIn</a>
                 <a href="https://talium0713.github.io" target="_blank" class="hover:text-sky-400 transition-colors">Personal Website</a>
             </div>
         </div>
