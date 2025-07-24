@@ -212,46 +212,46 @@
 
         <section id="interests" class="py-20 bg-white/90 backdrop-blur-sm shadow-inner">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center text-slate-900 mb-2">Personal Interests</h2>
-                <p class="text-center text-slate-700 mb-12">Beyond research, I enjoy exploring diverse fields and activities that inspire creativity and critical thinking. Hover over each card to reveal more.</p>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="bg-slate-100 p-8 rounded-2xl group relative overflow-hidden h-64 flex flex-col justify-center items-center shadow-lg transition-all duration-300 hover:shadow-xl">
-                        <!-- Visual State (Default) -->
-                        <div class="absolute inset-0 flex flex-col justify-center items-center transition-opacity duration-500 group-hover:opacity-0 p-4">
-                            <img src="img/mathematics.png" alt="Mathematics" class="w-20 h-20 mb-4 object-contain" />
-                            <h3 class="text-xl font-semibold text-slate-900">Mathematics</h3>
-                        </div>
-                        <!-- Text State (On Hover) -->
-                        <div class="absolute inset-0 flex flex-col justify-center items-center p-8 bg-slate-100 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                            <h3 class="text-xl font-semibold text-slate-900 mb-2">Mathematics</h3>
-                            <p class="text-slate-700 text-center">Exploring abstract concepts, solving challenging problems, and appreciating the beauty of logical reasoning.</p>
-                        </div>
-                    </div>
-                    <div class="bg-slate-100 p-8 rounded-2xl group relative overflow-hidden h-64 flex flex-col justify-center items-center shadow-lg transition-all duration-300 hover:shadow-xl">
-                        <!-- Visual State (Default) -->
-                        <div class="absolute inset-0 flex flex-col justify-center items-center transition-opacity duration-500 group-hover:opacity-0 p-4">
-                            <img src="img/philosophy.png" alt="Philosophy" class="w-20 h-20 mb-4 object-contain" />
-                            <h3 class="text-xl font-semibold text-slate-900">Philosophy</h3>
-                        </div>
-                        <!-- Text State (On Hover) -->
-                        <div class="absolute inset-0 flex flex-col justify-center items-center p-8 bg-slate-100 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                            <h3 class="text-xl font-semibold text-slate-900 mb-2">Philosophy</h3>
-                            <p class="text-slate-700 text-center">Thinking deeply about existence, ethics, and knowledge. Enjoying discussions that broaden perspectives.</p>
-                        </div>
-                    </div>
-                    <div class="bg-slate-100 p-8 rounded-2xl group relative overflow-hidden h-64 flex flex-col justify-center items-center shadow-lg transition-all duration-300 hover:shadow-xl">
-                        <!-- Visual State (Default) -->
-                        <div class="absolute inset-0 flex flex-col justify-center items-center transition-opacity duration-500 group-hover:opacity-0 p-4">
-                            <img src="img/game.png" alt="Games" class="w-20 h-20 mb-4 object-contain" />
-                            <h3 class="text-xl font-semibold text-slate-900">Games</h3>
-                        </div>
-                        <!-- Text State (On Hover) -->
-                        <div class="absolute inset-0 flex flex-col justify-center items-center p-8 bg-slate-100 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                            <h3 class="text-xl font-semibold text-slate-900 mb-2">Games</h3>
-                            <p class="text-slate-700 text-center">Playing strategic board games and video games to relax, learn, and connect with others.</p>
-                        </div>
-                    </div>
+            <h2 class="text-3xl font-bold text-center text-slate-900 mb-2">Personal Interests</h2>
+            <p class="text-center text-slate-700 mb-12">Beyond research, I enjoy exploring diverse fields and activities that inspire creativity and critical thinking. Hover over each card to reveal more.</p>
+            <div class="interest-boxes">
+                <div class="interest-box group">
+                <!-- Visual State (Default) -->
+                <div class="visual-state">
+                    <img src="img/mathematics.png" alt="Mathematics" class="interest-image" />
+                    <h3 class="text-xl font-semibold text-white absolute bottom-4 left-0 right-0 text-center">Mathematics</h3>
                 </div>
+                <!-- Text State (On Hover) -->
+                <div class="text-state">
+                    <h3 class="text-xl font-semibold text-slate-900 mb-2">Mathematics</h3>
+                    <p class="text-slate-700 text-center">Exploring abstract concepts, solving challenging problems, and appreciating the beauty of logical reasoning.</p>
+                </div>
+                </div>
+                <div class="interest-box group">
+                <!-- Visual State (Default) -->
+                <div class="visual-state">
+                    <img src="img/philosophy.png" alt="Philosophy" class="interest-image" />
+                    <h3 class="text-xl font-semibold text-white absolute bottom-4 left-0 right-0 text-center">Philosophy</h3>
+                </div>
+                <!-- Text State (On Hover) -->
+                <div class="text-state">
+                    <h3 class="text-xl font-semibold text-slate-900 mb-2">Philosophy</h3>
+                    <p class="text-slate-700 text-center">Thinking deeply about existence, ethics, and knowledge. Enjoying discussions that broaden perspectives.</p>
+                </div>
+                </div>
+                <div class="interest-box group">
+                <!-- Visual State (Default) -->
+                <div class="visual-state">
+                    <img src="img/game.png" alt="Games" class="interest-image" />
+                    <h3 class="text-xl font-semibold text-white absolute bottom-4 left-0 right-0 text-center">Games</h3>
+                </div>
+                <!-- Text State (On Hover) -->
+                <div class="text-state">
+                    <h3 class="text-xl font-semibold text-slate-900 mb-2">Games</h3>
+                    <p class="text-slate-700 text-center">Playing strategic board games and video games to relax, learn, and connect with others.</p>
+                </div>
+                </div>
+            </div>
             </div>
         </section>
 
