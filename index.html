@@ -69,6 +69,42 @@
                 height: 350px;
             }
         }
+        .personal-interest-section {
+        padding: 2rem 0;
+        }
+
+        .interest-boxes {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        }
+
+        .interest-box {
+        background: #f5f5f5;
+        border-radius: 12px;
+        padding: 1.5rem;
+        width: 220px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        }
+
+        .visual-state {
+        margin-bottom: 1rem;
+        }
+
+        .interest-image {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+        }
+
+        .text-state h3 {
+        margin: 0.5rem 0 0.3rem 0;
+        }
+
     </style>
 </head>
 <body class="antialiased">
@@ -149,6 +185,42 @@
                     </div>
                 </div>
             </div>
+        </section>
+
+        <section class="personal-interest-section">
+        <h2>Personal Interests</h2>
+        <div class="interest-boxes">
+            <!-- Mathematics -->
+            <div class="interest-box">
+            <div class="visual-state">
+                <img src="images/philosophy.png" alt="Mathematics" class="interest-image" />
+            </div>
+            <div class="text-state">
+                <h3>Mathematics</h3>
+                <p>Exploring abstract concepts, solving challenging problems, and appreciating the beauty of logical reasoning.</p>
+            </div>
+            </div>
+            <!-- Philosophy -->
+            <div class="interest-box">
+            <div class="visual-state">
+                <img src="images/philosophy.png" alt="Philosophy" class="interest-image" />
+            </div>
+            <div class="text-state">
+                <h3>Philosophy</h3>
+                <p>Thinking deeply about existence, ethics, and knowledge. Enjoying discussions that broaden perspectives.</p>
+            </div>
+            </div>
+            <!-- Games -->
+            <div class="interest-box">
+            <div class="visual-state">
+                <img src="images/game.png" alt="Games" class="interest-image" />
+            </div>
+            <div class="text-state">
+                <h3>Games</h3>
+                <p>Playing strategic board games and video games to relax, learn, and connect with others.</p>
+            </div>
+            </div>
+        </div>
         </section>
 
         <section id="research" class="py-20">
