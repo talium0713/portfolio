@@ -137,8 +137,8 @@
             <a href="#home" class="text-xl font-bold text-slate-900">Taehyun Cho</a>
             <div class="hidden md:flex space-x-8">
                 <a href="#intro" class="nav-link text-slate-700 hover:text-sky-600 transition-colors duration-300">Introduction</a>
-                <a href="#research" class="nav-link text-slate-700 hover:text-sky-600 transition-colors duration-300">Key Research</a>
                 <a href="#vision" class="nav-link text-slate-700 hover:text-sky-600 transition-colors duration-300">Research Vision</a>
+                <a href="#research" class="nav-link text-slate-700 hover:text-sky-600 transition-colors duration-300">Key Research</a>
                 <a href="#synergy" class="nav-link text-slate-700 hover:text-sky-600 transition-colors duration-300">Synergy with Leading AI Research</a>
             </div>
             <button id="mobile-menu-button" class="md:hidden text-slate-800">
@@ -149,8 +149,8 @@
         </nav>
         <div id="mobile-menu" class="hidden md:hidden bg-white">
             <a href="#intro" class="block py-2 px-6 text-sm text-slate-700 hover:bg-slate-100">Introduction</a>
-            <a href="#research" class="block py-2 px-6 text-sm text-slate-700 hover:bg-slate-100">Key Research</a>
             <a href="#vision" class="block py-2 px-6 text-sm text-slate-700 hover:bg-slate-100">Research Vision</a>
+            <a href="#research" class="block py-2 px-6 text-sm text-slate-700 hover:bg-slate-100">Key Research</a>
             <a href="#synergy" class="block py-2 px-6 text-sm text-slate-700 hover:bg-slate-100">Synergy with Leading AI Research</a>
         </div>
     </header>
@@ -205,6 +205,61 @@
                             <h3 class="text-xl font-semibold text-slate-900 mb-2">Research Interest</h3>
                             <p class="text-slate-700 text-center">My research aims to answer fundamental questions in RL such as sample efficiency, generalization, and aligning AI with human intentions, with a focus on <strong>Distributional Reinforcement Learning(DistRL), Reinforcement Learning from Human Feedback(RLHF), and Regret Analysis.</strong></p>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="vision" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-slate-900 mb-2">Research Vision</h2>
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <div class="bg-slate-100 p-8 rounded-2xl group relative overflow-hidden h-64 flex flex-col justify-center items-center shadow-lg transition-all duration-300 hover:shadow-xl">
+                        <!-- Visual State (Default) -->
+                        <div class="absolute inset-0 flex flex-col justify-center items-center transition-opacity duration-500 group-hover:opacity-0 p-4">
+                            <span class="text-5xl mb-4">🚧</span>
+                            <h3 class="text-xl font-semibold text-slate-900">Current Challenges</h3>
+                        </div>
+                        <!-- Text State (On Hover) -->
+                        <div class="absolute inset-0 flex flex-col justify-center items-center p-8 bg-slate-100 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                            <h3 class="text-xl font-semibold text-slate-900 mb-2">Current Challenges</h3>
+                            <p class="text-slate-700 text-center">
+                                Traditional RL often models human decision-making as maximizing the expected sum of rewards. 
+                                However, in reality, people are sensitive to risk, and environments frequently lack explicit reward signals. 
+                                My research aims to model decision-making from a regret minimization perspective using human preference feedback, moving beyond simple reward maximization to better capture real-world human behavior.
+                            </p></p>
+                        </div>
+                    </div>
+                    <div class="bg-slate-100 p-8 rounded-2xl group relative overflow-hidden h-64 flex flex-col justify-center items-center shadow-lg transition-all duration-300 hover:shadow-xl">
+                        <!-- Visual State (Default) -->
+                        <div class="absolute inset-0 flex flex-col justify-center items-center transition-opacity duration-500 group-hover:opacity-0 p-4">
+                            <span class="text-5xl mb-4">🛠️</span>
+                            <h3 class="text-xl font-semibold text-slate-900">Key Tools & Approaches</h3>
+                        </div>
+                        <!-- Text State (On Hover) -->
+                        <div class="absolute inset-0 flex flex-col justify-center items-center p-8 bg-slate-100 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                            <h3 class="text-xl font-semibold text-slate-900 mb-2">Key Tools & Approaches</h3>
+                            <ul class="list-disc text-left text-slate-700 pl-4 space-y-1">
+                                <li><strong>Distributional RL</strong>: To capture the full uncertainty and risk in sequential decision-making, I adopted distributional RL, which models the entire distribution of returns rather than just the mean.</li>
+                                <li><strong>RLHF (Reinforcement Learning from Human Feedback)</strong>: To address the lack of explicit reward signals and better align AI with human values, I leverage RLHF to learn from preference and feedback data.</li>
+                                <li><strong>Regret Analysis</strong>: To ensure robust learning and efficient exploration, I use regret analysis as a theoretical tool for understanding and minimizing suboptimal decisions over time.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="bg-slate-100 p-8 rounded-2xl group relative overflow-hidden h-64 flex flex-col justify-center items-center shadow-lg transition-all duration-300 hover:shadow-xl">
+                        <!-- Visual State (Default) -->
+                        <div class="absolute inset-0 flex flex-col justify-center items-center transition-opacity duration-500 group-hover:opacity-0 p-4">
+                            <span class="text-5xl mb-4">🚀</span>
+                            <h3 class="text-xl font-semibold text-slate-900">Future Directions</h3>
+                        </div>
+                        <!-- Text State (On Hover) -->
+                        <div class="absolute inset-0 flex flex-col justify-center items-center p-8 bg-slate-100 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                            <h3 class="text-xl font-semibold text-slate-900 mb-2">Future Directions</h3>
+                            <p class="text-slate-700 text-center">
+                                Ultimately, I aim to advance the modeling of individual decision-making in multi-agent scenarios and design improved reward systems that maximize social utility—such as fair allocation, enjoyment, and more. To achieve this, I plan to extend regret-based preference learning and explore both theoretical and practical methodologies that enable desirable societal objectives through the interactions of diverse agents.
+                            </p>
+                        </div>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -278,12 +333,12 @@
                                     <p><strong>Impact & Significance:</strong> PPL significantly improves offline RLHF performance and demonstrates effectiveness in online settings, particularly in high-dimensional continuous control tasks. It offers a more robust and accurate way to learn from human preferences, crucial for applications like LLMs and robotic manipulation.</p>
                                 </div>
                             </div>
-                            <div>
+                            <!-- <div>
                                 <h4 class="font-semibold text-slate-800 mb-2 text-center">Key Results: Performance Comparison</h4>
                                 <div class="chart-container">
                                     <canvas id="researchChart1"></canvas>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <!-- Research 2 -->
@@ -326,50 +381,7 @@
             </div>
         </section>
 
-        <section id="vision" class="py-20 bg-white/90 backdrop-blur-sm shadow-inner">
-            <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center text-slate-900 mb-2">Towards the Future: Next Steps in Reinforcement Learning</h2>
-                <p class="text-center text-slate-700 mb-12">This section presents my vision for the future of reinforcement learning and the research directions I aspire to contribute to at a leading AI research lab. Hover over each card to reveal details.</p>
-                <div class="grid md:grid-cols-3 gap-8 mb-12">
-                    <div class="bg-slate-100 p-8 rounded-2xl group relative overflow-hidden h-64 flex flex-col justify-center items-center shadow-lg transition-all duration-300 hover:shadow-xl">
-                        <!-- Visual State (Default) -->
-                        <div class="absolute inset-0 flex flex-col justify-center items-center transition-opacity duration-500 group-hover:opacity-0 p-4">
-                            <span class="text-5xl mb-4">🚧</span>
-                            <h3 class="text-xl font-semibold text-slate-900">Current Challenges</h3>
-                        </div>
-                        <!-- Text State (On Hover) -->
-                        <div class="absolute inset-0 flex flex-col justify-center items-center p-8 bg-slate-100 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                            <h3 class="text-xl font-semibold text-slate-900 mb-2">Current Challenges</h3>
-                            <p class="text-slate-700 text-center">The primary challenges in RL include improving sample efficiency, achieving robust generalization across diverse environments, ensuring safety and interpretability of learned policies, and scaling to real-world complexities.</p>
-                        </div>
-                    </div>
-                    <div class="bg-slate-100 p-8 rounded-2xl group relative overflow-hidden h-64 flex flex-col justify-center items-center shadow-lg transition-all duration-300 hover:shadow-xl">
-                        <!-- Visual State (Default) -->
-                        <div class="absolute inset-0 flex flex-col justify-center items-center transition-opacity duration-500 group-hover:opacity-0 p-4">
-                            <span class="text-5xl mb-4">🔭</span>
-                            <h3 class="text-xl font-semibold text-slate-900">Long-term Research Goals</h3>
-                        </div>
-                        <!-- Text State (On Hover) -->
-                        <div class="absolute inset-0 flex flex-col justify-center items-center p-8 bg-slate-100 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                            <h3 class="text-xl font-semibold text-slate-900 mb-2">Long-term Research Goals</h3>
-                            <p class="text-slate-700 text-center">My long-term goal is to develop foundational RL algorithms that enable agents to learn efficiently from limited data, generalize to novel tasks and environments, and operate safely and reliably in human-centric applications. I aim to focus on areas like multi-agent systems, lifelong learning, and integrating symbolic reasoning with deep RL.</p>
-                        </div>
-                    </div>
-                    <div class="bg-slate-100 p-8 rounded-2xl group relative overflow-hidden h-64 flex flex-col justify-center items-center shadow-lg transition-all duration-300 hover:shadow-xl">
-                        <!-- Visual State (Default) -->
-                        <div class="absolute inset-0 flex flex-col justify-center items-center transition-opacity duration-500 group-hover:opacity-0 p-4">
-                            <span class="text-5xl mb-4">🚀</span>
-                            <h3 class="text-xl font-semibold text-slate-900">Next Steps at a Leading AI Lab</h3>
-                        </div>
-                        <!-- Text State (On Hover) -->
-                        <div class="absolute inset-0 flex flex-col justify-center items-center p-8 bg-slate-100 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                            <h3 class="text-xl font-semibold text-slate-900 mb-2">Next Steps at a Leading AI Lab</h3>
-                            <p class="text-slate-700 text-center">At a leading AI research lab, I'm eager to explore how regret-based preference learning can be extended to multi-modal RLHF for complex robotic tasks, or investigate the theoretical underpinnings of provably efficient distributional RL in real-world, high-dimensional settings. I'm also keen to contribute to research on AI safety and alignment, ensuring that powerful RL agents act in beneficial ways.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+
 
         <section id="synergy" class="py-20">
             <div class="container mx-auto px-6">
