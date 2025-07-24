@@ -72,38 +72,48 @@
         .personal-interest-section {
         padding: 2rem 0;
         }
-
-        .interest-boxes {
-        display: flex;
-        gap: 1.5rem;
-        justify-content: center;
-        }
-
         .interest-box {
+        position: relative;
+        width: 220px;
+        height: 220px;
         background: #f5f5f5;
         border-radius: 12px;
-        padding: 1.5rem;
-        width: 220px;
         box-shadow: 0 2px 8px rgba(0,0,0,0.07);
         text-align: center;
+        overflow: hidden;
+        cursor: pointer;
+        }
+
+        .visual-state,
+        .text-state {
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
+        transition: opacity 0.3s;
         }
 
         .visual-state {
-        margin-bottom: 1rem;
+        opacity: 1;
+        z-index: 1;
         }
 
-        .interest-image {
-        width: 80px;
-        height: 80px;
-        object-fit: contain;
+        .text-state {
+        opacity: 0;
+        z-index: 2;
+        background: #f5f5f5;
         }
 
-        .text-state h3 {
-        margin: 0.5rem 0 0.3rem 0;
+        .interest-box:hover .visual-state {
+        opacity: 0;
         }
+
+        .interest-box:hover .text-state {
+        opacity: 1;
+        }
+ 
 
     </style>
 </head>
@@ -188,39 +198,42 @@
         </section>
 
         <section class="personal-interest-section">
-        <h2>Personal Interests</h2>
-        <div class="interest-boxes">
-            <!-- Mathematics -->
-            <div class="interest-box">
-            <div class="visual-state">
-                <img src="images/philosophy.png" alt="Mathematics" class="interest-image" />
+            <h2 class="text-3xl font-bold text-center text-slate-900 mb-8">Personal Interests</h2>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-8">
+                <!-- Mathematics -->
+                <div class="interest-box group">
+                    <div class="visual-state transition-opacity duration-300 group-hover:opacity-0">
+                        <img src="img/philosophy.png" alt="Mathematics" class="interest-image mb-4" style="width:80px;height:80px;" />
+                        <h3 class="text-xl font-semibold text-slate-900">Mathematics</h3>
+                    </div>
+                    <div class="text-state transition-opacity duration-300 group-hover:opacity-100 opacity-0">
+                        <h3 class="text-xl font-semibold text-slate-900 mb-2">Mathematics</h3>
+                        <p class="text-slate-700 text-center">Exploring abstract concepts, solving challenging problems, and appreciating the beauty of logical reasoning.</p>
+                    </div>
+                </div>
+                <!-- Philosophy -->
+                <div class="interest-box group">
+                    <div class="visual-state transition-opacity duration-300 group-hover:opacity-0">
+                        <img src="img/philosophy.png" alt="Philosophy" class="interest-image mb-4" style="width:80px;height:80px;" />
+                        <h3 class="text-xl font-semibold text-slate-900">Philosophy</h3>
+                    </div>
+                    <div class="text-state transition-opacity duration-300 group-hover:opacity-100 opacity-0">
+                        <h3 class="text-xl font-semibold text-slate-900 mb-2">Philosophy</h3>
+                        <p class="text-slate-700 text-center">Thinking deeply about existence, ethics, and knowledge. Enjoying discussions that broaden perspectives.</p>
+                    </div>
+                </div>
+                <!-- Games -->
+                <div class="interest-box group">
+                    <div class="visual-state transition-opacity duration-300 group-hover:opacity-0">
+                        <img src="img/game.png" alt="Games" class="interest-image mb-4" style="width:80px;height:80px;" />
+                        <h3 class="text-xl font-semibold text-slate-900">Games</h3>
+                    </div>
+                    <div class="text-state transition-opacity duration-300 group-hover:opacity-100 opacity-0">
+                        <h3 class="text-xl font-semibold text-slate-900 mb-2">Games</h3>
+                        <p class="text-slate-700 text-center">Playing strategic board games and video games to relax, learn, and connect with others.</p>
+                    </div>
+                </div>
             </div>
-            <div class="text-state">
-                <h3>Mathematics</h3>
-                <p>Exploring abstract concepts, solving challenging problems, and appreciating the beauty of logical reasoning.</p>
-            </div>
-            </div>
-            <!-- Philosophy -->
-            <div class="interest-box">
-            <div class="visual-state">
-                <img src="images/philosophy.png" alt="Philosophy" class="interest-image" />
-            </div>
-            <div class="text-state">
-                <h3>Philosophy</h3>
-                <p>Thinking deeply about existence, ethics, and knowledge. Enjoying discussions that broaden perspectives.</p>
-            </div>
-            </div>
-            <!-- Games -->
-            <div class="interest-box">
-            <div class="visual-state">
-                <img src="images/game.png" alt="Games" class="interest-image" />
-            </div>
-            <div class="text-state">
-                <h3>Games</h3>
-                <p>Playing strategic board games and video games to relax, learn, and connect with others.</p>
-            </div>
-            </div>
-        </div>
         </section>
 
         <section id="research" class="py-20">
